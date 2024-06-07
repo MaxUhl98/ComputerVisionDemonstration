@@ -31,6 +31,9 @@ class DemonstrationConfig:
     apex: bool = False
     lr_scheduling: bool = False
 
+    # Logging
+    log_dir = 'classification/models/training_logs'
+
     class_mappings: dict[str, int] = {'Apple__Healthy': 0, 'Apple__Rotten': 1, 'Banana__Healthy': 2,
                                       'Banana__Rotten': 3, 'Bellpepper__Healthy': 4, 'Bellpepper__Rotten': 5,
                                       'Carrot__Healthy': 6, 'Carrot__Rotten': 7, 'Cucumber__Healthy': 8,
