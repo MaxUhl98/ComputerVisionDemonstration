@@ -2,7 +2,6 @@ import numpy as np
 import pandas as pd
 from torch.utils.data import Dataset
 from typing import *
-from os import PathLike
 from pathlib import Path
 import torch
 from torchvision.transforms.v2 import Compose, ToPILImage, PILToTensor, ToDtype, Transform, Resize, RGB
@@ -26,7 +25,7 @@ class VegetableData(Dataset):
         self.targets = torch.from_numpy(data.target.values.astype(np.int64))
         self.image_processor = Compose(
             [ToPILImage(mode='RGB'), PILToTensor(), Resize((224, 224)), ToDtype(data_type, scale=True)])
-        self.images = [self.image_processor(self.load_image(idx)) for idx in range(len(self.targets))]
+        self.images = [self.image_processor(self.load_image(idx))[:3, :, :] for idx in range(len(self.targets))]
 
     def __len__(self) -> int:
         """Returns total number of samples"""
