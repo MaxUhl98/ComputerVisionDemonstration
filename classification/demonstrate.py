@@ -21,7 +21,18 @@ def plot_labelled_images(images: list[torch.Tensor], prediction_labels: list[str
                          num_rows: int,
                          num_cols: int,
                          cmap='gray', show_axis: bool = False) -> None:
-    """Plot Matrix of Labelled Images"""
+    """
+    Plot a matrix of labelled images.
+
+    :param images: List of image tensors to be plotted.
+    :param prediction_labels: List of predicted labels for the images.
+    :param true_labels: List of true labels for the images.
+    :param num_rows: Number of rows in the plot grid.
+    :param num_cols: Number of columns in the plot grid.
+    :param cmap: Colormap used for displaying images (default is 'gray').
+    :param show_axis: Boolean flag to show or hide axis (default is False).
+    :return: None
+    """
     fig, ax = plt.subplots(num_rows, num_cols, figsize=(10, 10))
 
     rows, cols = num_rows, num_cols
@@ -36,6 +47,14 @@ def plot_labelled_images(images: list[torch.Tensor], prediction_labels: list[str
 
 
 def plot_test_confusion_matrix(predictions: torch.Tensor, targets: torch.Tensor, classnames: list[str]) -> None:
+    """
+    Plot a confusion matrix for test predictions.
+
+    :param predictions: Tensor of model predictions.
+    :param targets: Tensor of true target labels.
+    :param classnames: List of class names corresponding to the target labels.
+    :return: None
+    """
     conf_mat = ConfusionMatrix(num_classes=len(classnames), task='multiclass')
     conf_mat_tensor = conf_mat(preds=predictions, target=targets)
     plot_confusion_matrix(conf_mat=conf_mat_tensor.cpu().numpy(), class_names=classnames, figsize=(10, 10))
@@ -43,6 +62,12 @@ def plot_test_confusion_matrix(predictions: torch.Tensor, targets: torch.Tensor,
 
 
 def demonstrate(cfg: DemonstrationConfig):
+    """
+    Demonstrate model performance by plotting labelled images and a confusion matrix.
+
+    :param cfg: DemonstrationConfig object containing configuration for the demonstration.
+    :return: None
+    """
     set_default_device()
     model_mapping = {
         'efficientnetv2': (CustomizedEfficientnetV2, cfg.get_efficientnet_kwargs, 'EfficientNetV2'),
