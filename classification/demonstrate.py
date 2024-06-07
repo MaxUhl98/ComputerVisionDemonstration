@@ -6,7 +6,7 @@ from demo_configuration import DemonstrationConfig
 from classification.models.EfficientNetV2 import CustomizedEfficientnetV2
 from classification.models.ViT import CustomizedViT
 from classification.models.MiniVGG import MiniVGG
-from classification.data.vegetable_data_class import ImageDataset
+from classification.data.image_data_class import ImageDataset
 from classification.models.ConvNeXt_V2 import CustomizedConvNeXT_V2
 from torch.utils.data import DataLoader
 import torch.nn.functional as F

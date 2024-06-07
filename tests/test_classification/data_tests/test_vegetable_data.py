@@ -1,7 +1,7 @@
 import os
 
 import pytest
-from classification.data.vegetable_data_class import VegetableData, get_class_mappings
+from classification.data.image_data_class import VegetableData, get_class_mappings
 from pathlib import Path
 import pandas as pd
 from tests.test_classification.mock_config import MockConfig

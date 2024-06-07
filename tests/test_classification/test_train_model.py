@@ -1,7 +1,7 @@
 import classification.train_model as tm
 from tests.test_classification.mock_config import MockConfig
 from mock_model import MockModel
-from classification.data.vegetable_data_class import VegetableData
+from classification.data.image_data_class import VegetableData
 from classification.models.ViT import CustomizedViT
 
 

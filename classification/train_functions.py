@@ -15,7 +15,7 @@ from typing import Dict, List, Union
 import torch.nn.functional as F
 from sklearn.model_selection import StratifiedKFold
 from torch.utils.data import DataLoader
-from classification.data.vegetable_data_class import ImageDataset
+from classification.data.image_data_class import ImageDataset
 
 
 class AverageMeter(object):
