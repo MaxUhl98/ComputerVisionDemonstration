@@ -78,13 +78,13 @@ def demonstrate(cfg: DemonstrationConfig):
 
     sample_datapoints = zip(
         *[(test_data.load_image(idx), test_data.targets[idx].item(), all_predictions[idx].item()) for idx in
-          sample(range(len(test_data)), 36)])
+          sample(range(len(test_data)), 16)])
     sample_images, sample_labels, sample_predictions = sample_datapoints
     label2_class_mapping = {v: k for k, v in cfg.class_mappings.items()}
     sample_labels, sample_predictions = [label2_class_mapping[prediction] for prediction in sample_predictions], [
         label2_class_mapping[label] for label in sample_labels]
 
-    plot_labelled_images(sample_images, prediction_labels=sample_predictions, true_labels=sample_labels, num_cols=6,
-                         num_rows=6)
+    plot_labelled_images(sample_images, prediction_labels=sample_predictions, true_labels=sample_labels, num_cols=4,
+                         num_rows=4)
     plot_test_confusion_matrix(all_predictions.to(torch.get_default_device()),
                                all_targets.to(torch.get_default_device()), list(cfg.class_mappings.keys()))
