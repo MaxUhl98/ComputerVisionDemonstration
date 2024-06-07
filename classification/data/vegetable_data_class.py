@@ -5,7 +5,7 @@ from typing import *
 from os import PathLike
 from pathlib import Path
 import torch
-from torchvision.transforms.v2 import Compose, ToImage, ToDtype, Transform, Resize, RGB
+from torchvision.transforms.v2 import Compose, ToPILImage, PILToTensor, ToDtype, Transform, Resize, RGB
 from PIL import Image
 
 
@@ -24,7 +24,8 @@ class VegetableData(Dataset):
         super(VegetableData, self).__init__()
         self.data_paths = data.path.values
         self.targets = torch.from_numpy(data.target.values.astype(np.int64))
-        self.image_processor = Compose([ToImage(), RGB(), Resize((224, 224)), ToDtype(data_type, scale=True)])
+        self.image_processor = Compose(
+            [ToPILImage(mode='RGB'), PILToTensor(), Resize((224, 224)), ToDtype(data_type, scale=True)])
         self.images = [self.image_processor(self.load_image(idx)) for idx in range(len(self.targets))]
 
     def __len__(self) -> int:
