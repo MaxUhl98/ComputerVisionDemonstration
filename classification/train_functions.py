@@ -17,6 +17,7 @@ from sklearn.model_selection import StratifiedKFold
 from torch.utils.data import DataLoader
 from classification.data.vegetable_data_class import VegetableData
 
+
 class AverageMeter(object):
     """Computes and stores the average and current value"""
 
@@ -46,6 +47,7 @@ class AverageMeter(object):
         self.sum += val * n
         self.count += n
         self.avg = self.sum / self.count
+
 
 def train_step(model: torch.nn.Module,
                dataloader: torch.utils.data.DataLoader,
@@ -117,6 +119,7 @@ def train_step(model: torch.nn.Module,
 
     return avg_meter.avg, correct_predictions / total_datapoints
 
+
 def test_step(model: torch.nn.Module,
               dataloader: torch.utils.data.DataLoader,
               loss_fn: torch.nn.Module,
@@ -151,6 +154,7 @@ def test_step(model: torch.nn.Module,
             loss_avg_meter.update(loss.item())
 
     return loss_avg_meter.avg, correct_predictions / total_test_datapoints
+
 
 def train(model: torch.nn.Module,
           train_dataloader: torch.utils.data.DataLoader,
@@ -240,6 +244,7 @@ def train(model: torch.nn.Module,
         results["val_acc"].append(val_accuracy)
 
     return results
+
 
 def k_fold_train(models: List[torch.nn.Module], paths_to_data: List[Union[os.PathLike, str]],
                  optimizers: List[torch.optim.Optimizer],

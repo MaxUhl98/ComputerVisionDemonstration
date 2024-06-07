@@ -51,7 +51,7 @@ def get_models_and_logger(cfg: DemonstrationConfig) -> tuple[list[nn.Module], lo
         model_class, model_kwargs_call, log_folder = model_mapping[model_key]
         models = [model_class(model_kwargs_call()) for _ in range(cfg.num_folds)]
         train_logger = get_logger(name=cfg.model_name + '_train',
-                                  base_filepath=f'classification/models/training_logs/{log_folder}')
+                                  base_filepath=f'{cfg.log_dir}/{log_folder}')
     else:
         raise NotImplementedError(
             f'The model {cfg.model_name} is not implemented, please check your spelling or the documentation')
