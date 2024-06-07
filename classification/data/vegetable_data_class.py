@@ -8,19 +8,15 @@ from torchvision.transforms.v2 import Compose, ToPILImage, PILToTensor, ToDtype,
 from PIL import Image
 
 
-class VegetableData(Dataset):
-    """Loads Vegetable Dataset from
-    https://www.researchgate.net/publication/352846889_DCNN-Based_Vegetable_Image_Classification_Using_Transfer_Learning_A_Comparative_Study
-    Published by https://www.kaggle.com/misrakahmed at
-    https://www.kaggle.com/datasets/misrakahmed/vegetable-image-dataset
-    Does not augment the data in any kind of way"""
+class ImageDataset(Dataset):
+    """Does not augment the data in any kind of way"""
 
     data_paths: List[Path]
     labels: torch.Tensor
     image_processor: Transform
 
     def __init__(self, data: pd.DataFrame, data_type: torch.dtype = torch.float32):
-        super(VegetableData, self).__init__()
+        super(ImageDataset, self).__init__()
         self.data_paths = data.path.values
         self.targets = torch.from_numpy(data.target.values.astype(np.int64))
         self.image_processor = Compose(
@@ -38,7 +34,9 @@ class VegetableData(Dataset):
 
     def __getitem__(self, idx) -> tuple[torch.Tensor, torch.Tensor]:
         """Returns one sample of data, data and label (X,y)"""
-        return self.images[idx], self.targets[idx]
+
+        return self.images[idx] if self.images[idx].shape[0] == 3 else torch.cat(
+            [self.images[idx], self.images[idx], self.images[idx]], 0), self.targets[idx]
 
 
 def get_class_mappings(_data: VegetableData) -> Dict[str, int]:

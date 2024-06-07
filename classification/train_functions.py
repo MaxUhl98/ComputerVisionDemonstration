@@ -15,7 +15,7 @@ from typing import Dict, List, Union
 import torch.nn.functional as F
 from sklearn.model_selection import StratifiedKFold
 from torch.utils.data import DataLoader
-from classification.data.vegetable_data_class import VegetableData
+from classification.data.vegetable_data_class import ImageDataset
 
 
 class AverageMeter(object):
@@ -267,7 +267,7 @@ def k_fold_train(models: List[torch.nn.Module], paths_to_data: List[Union[os.Pat
     paths += sum([list(Path(dir_path).glob('**/*/*.png')) for dir_path in paths_to_data], [])
     data = pd.DataFrame(
         {'path': paths, 'target': [cfg.class_mappings.get(data_path.parent.name) for data_path in paths]})
-    data = VegetableData(data)
+    data = ImageDataset(data)
     folds = folder.split([num for num in range(len(data))], data.targets.cpu().numpy())
     fold_results = {}
     base_save_path = cfg.model_save_path.split('.pth')[0]

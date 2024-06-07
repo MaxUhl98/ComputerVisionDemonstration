@@ -6,7 +6,7 @@ from demo_configuration import DemonstrationConfig
 from classification.models.EfficientNetV2 import CustomizedEfficientnetV2
 from classification.models.ViT import CustomizedViT
 from classification.models.MiniVGG import MiniVGG
-from classification.data.vegetable_data_class import VegetableData
+from classification.data.vegetable_data_class import ImageDataset
 from classification.models.ConvNeXt_V2 import CustomizedConvNeXT_V2
 from torch.utils.data import DataLoader
 import torch.nn.functional as F
@@ -62,7 +62,7 @@ def demonstrate(cfg: DemonstrationConfig):
     paths += sum([list(Path(dir_path).glob('**/*/*.png')) for dir_path in cfg.test_data_path], [])
     data = pd.DataFrame(
         {'path': paths, 'target': [cfg.class_mappings.get(data_path.parent.name) for data_path in paths]})
-    test_data = VegetableData(data)
+    test_data = ImageDataset(data)
     test_data_loader = DataLoader(test_data, batch_size=cfg.batch_size)
     all_predictions = []
     all_targets = []
