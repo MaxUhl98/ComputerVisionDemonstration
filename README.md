@@ -4,7 +4,5 @@ This repository contains the ability to conduct transfer-learning on the Models 
 ![alt text](https://github.com/MaxUhl98/ComputerVisionDemonstration/blob/main/demonstration_images/ConvNeXt_V2/ConvNeXtV2.png)
 
 
-## Confusion Matrix:
 
-![alt text](https://github.com/MaxUhl98/ComputerVisionDemonstration/blob/main/demonstration_images/ConvNeXt_V2/ConvNeXtV2_Konfusionsmatrix.png)
 
