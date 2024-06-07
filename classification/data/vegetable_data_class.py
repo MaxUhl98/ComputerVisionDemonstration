@@ -5,7 +5,7 @@ from typing import *
 from os import PathLike
 from pathlib import Path
 import torch
-from torchvision.transforms.v2 import Compose, ToImage, ToDtype, Transform, Resize
+from torchvision.transforms.v2 import Compose, ToImage, ToDtype, Transform, Resize, RGB
 from PIL import Image
 
 
@@ -24,12 +24,8 @@ class VegetableData(Dataset):
         super(VegetableData, self).__init__()
         self.data_paths = data.path.values
         self.targets = torch.from_numpy(data.target.values.astype(np.int64))
-        self.image_processor = Compose([ToImage(), Resize((224, 224)), ToDtype(data_type, scale=True)])
+        self.image_processor = Compose([ToImage(), RGB(), Resize((224, 224)), ToDtype(data_type, scale=True)])
         self.images = [self.image_processor(self.load_image(idx)) for idx in range(len(self.targets))]
-        # Filter images to guarantee that all datapoints have the right amount of channels
-        self.images, self.targets = zip(
-            *[(img, target) for img, target in zip(self.images, self.targets) if img.shape[0] == 3])
-        self.targets = torch.tensor(self.targets)
 
     def __len__(self) -> int:
         """Returns total number of samples"""
