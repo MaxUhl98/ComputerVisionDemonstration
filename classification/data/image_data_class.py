@@ -39,7 +39,7 @@ class ImageDataset(Dataset):
             [self.images[idx], self.images[idx], self.images[idx]], 0), self.targets[idx]
 
 
-def get_class_mappings(_data: VegetableData) -> Dict[str, int]:
+def get_class_mappings(_data: ImageDataset) -> Dict[str, int]:
     """
     Generates a dictionary that maps each unique class name to a number for training / inference usage.
 
