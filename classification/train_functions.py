@@ -264,6 +264,7 @@ def k_fold_train(models: List[torch.nn.Module], paths_to_data: List[Union[os.Pat
     """
     folder = StratifiedKFold(n_splits=len(models), shuffle=cfg.shuffle_folds)
     paths = sum([list(Path(dir_path).glob('**/*/*.jpg')) for dir_path in paths_to_data], [])
+    paths += sum([list(Path(dir_path).glob('**/*/*.png')) for dir_path in paths_to_data], [])
     data = pd.DataFrame(
         {'path': paths, 'target': [cfg.class_mappings.get(data_path.parent.name) for data_path in paths]})
     data = VegetableData(data)
