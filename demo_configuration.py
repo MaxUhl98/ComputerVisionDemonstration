@@ -16,14 +16,13 @@ class DemonstrationConfig:
 
     model_input_size: tuple[int, int, int] = (3, 224, 224)
 
-    # Paths to image folders
-    # Since I use the K-fold technique I treat the train and validation folder as the given training data,
-    # while I am using test as the 'production data'
+    # Paths to directories containing train image folders
     train_data_paths: list[Union[str, os.PathLike]] = [
-        r'C:\Users\root\PycharmProjects\CV_Demo\classification\data\Fruit And Vegetable Diseases Dataset\train']
+        r'classification\data\Fruit And Vegetable Diseases Dataset\train']
+    # Paths to directories containing test image folders
     test_data_path: list[Union[
         str, os.PathLike]] = [
-        r'C:\Users\root\PycharmProjects\CV_Demo\classification\data\Fruit And Vegetable Diseases Dataset\test']
+        r'C:classification\data\Fruit And Vegetable Diseases Dataset\test']
     # Train Settings
     save_best: bool = True
     model_save_path: str = f'classification/models/trained_models/{model_name}/{model_name}.pth'
