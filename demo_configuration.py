@@ -27,12 +27,12 @@ class DemonstrationConfig:
     save_best: bool = True
     model_save_path: str = f'classification/models/trained_models/{model_name}/{model_name}.pth'
     shuffle_folds: bool = True
-    log_batch_loss: bool = False
     apex: bool = False
     lr_scheduling: bool = False
 
-    # Logging
-    log_dir = 'classification/models/training_logs'
+    # Logging Settings
+    log_dir: Union[str, os.PathLike] = 'classification/models/training_logs'
+    log_batch_loss: bool = False
 
     class_mappings: dict[str, int] = {'Apple__Healthy': 0, 'Apple__Rotten': 1, 'Banana__Healthy': 2,
                                       'Banana__Rotten': 3, 'Bellpepper__Healthy': 4, 'Bellpepper__Rotten': 5,
@@ -45,8 +45,6 @@ class DemonstrationConfig:
                                       'Strawberry__Healthy': 24, 'Strawberry__Rotten': 25, 'Tomato__Healthy': 26,
                                       'Tomato__Rotten': 27}
 
-
-
     @staticmethod
     def get_efficientnet_kwargs() -> dict[str, Any]:
         return {
@@ -55,22 +53,17 @@ class DemonstrationConfig:
             'drop_rate': 0.1,
             'drop_path_rate': 0.2, }
 
-
     @staticmethod
-
-
     def get_vit_kwargs() -> dict[str, Any]:
         return {
             'model_name': "vit_tiny_patch16_224.augreg_in21k_ft_in1k",
             'pretrained': True}
-
 
     @staticmethod
     def get_convnextv2_kwargs() -> dict[str, Any]:
         return {
             'model_name': "convnextv2_pico.fcmae_ft_in1k",
             'pretrained': True}
-
 
     @staticmethod
     def get_minivgg_arg() -> int:
