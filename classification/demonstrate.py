@@ -76,7 +76,7 @@ def demonstrate(cfg: DemonstrationConfig):
         'convnext_v2': (CustomizedConvNeXT_V2, cfg.get_convnextv2_kwargs, 'ConvNeXt_V2')
     }
     model_class, model_kwarg_getter, dir_name = model_mapping[cfg.model_name.lower()]
-    trained_model_weight_paths = [torch.load(cfg.model_save_path.split('.')[0] + f'_fold_{num}.pth') for num in
+    trained_model_weight_paths = [torch.load(cfg.model_save_path.split('.')[0] + f'_fold_{num}.pth', map_location=torch.get_default_device()) for num in
                                   range(cfg.num_folds)]
 
     trained_models = [model_class(model_kwarg_getter()) for model_weights in
