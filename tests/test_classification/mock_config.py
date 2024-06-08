@@ -35,9 +35,25 @@ class MockConfig:
     num_classes = len(class_mappings)
 
     @staticmethod
-    def get_testmodel_kwargs() -> dict[str, Any]:
+    def get_efficientnet_kwargs() -> dict[str, Any]:
         return {
-            'model_name': "testname",
+            'model_name': "tf_efficientnetv2_s.in1k",
             'pretrained': True,
             'drop_rate': 0.1,
-            'drop_path_rate': 0.2}
+            'drop_path_rate': 0.2, }
+
+    @staticmethod
+    def get_vit_kwargs() -> dict[str, Any]:
+        return {
+            'model_name': "vit_tiny_patch16_224.augreg_in21k_ft_in1k",
+            'pretrained': True}
+
+    @staticmethod
+    def get_convnextv2_kwargs() -> dict[str, Any]:
+        return {
+            'model_name': "convnextv2_pico.fcmae_ft_in1k",
+            'pretrained': True}
+
+    @staticmethod
+    def get_minivgg_arg() -> int:
+        return 3
