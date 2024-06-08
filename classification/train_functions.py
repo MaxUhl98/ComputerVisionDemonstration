@@ -134,10 +134,7 @@ def test_step(model: torch.nn.Module,
     :return: A tuple of testing loss and testing accuracy metrics (val_loss, val_accuracy).
     """
     model.eval()
-    val_loss = 0
-
     loss_avg_meter = AverageMeter()
-    accuracy_average_meter = AverageMeter()
     total_test_datapoints = 0
     correct_predictions = 0
 
@@ -192,13 +189,9 @@ def train(model: torch.nn.Module,
                'train_acc': [],
                'val_acc': []
                }
-
     model.to(device)
-
     best_val_loss = 10 ** 6
     patience_count = 0
-
-    best_model = model.state_dict()
 
     for epoch in tqdm(range(epochs)):
         train_loss, train_accuracy = train_step(model=model,
@@ -280,11 +273,11 @@ def k_fold_train(models: List[torch.nn.Module], paths_to_data: List[Union[os.Pat
         train_data, validation_data = torch.utils.data.Subset(data, train_indexes), torch.utils.data.Subset(data,
                                                                                                             validation_indexes)
         train_loader, validation_loader = DataLoader(train_data, batch_size=cfg.batch_size, shuffle=True,
-                                                     generator=torch.Generator('cuda')), DataLoader(validation_data,
+                                                     generator=torch.Generator(torch.get_default_device())), DataLoader(validation_data,
                                                                                                     batch_size=cfg.batch_size,
                                                                                                     shuffle=True,
                                                                                                     generator=torch.Generator(
-                                                                                                        'cuda'))
+                                                                                                        torch.get_default_device()))
         fold_save_path = base_save_path + f'_fold_{num}'
         logger.info(f'Starting training of fold {num}')
         fold_results[f'fold_{num}'] = train(model=models[num], train_dataloader=train_loader,
