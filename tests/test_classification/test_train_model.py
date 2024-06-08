@@ -1,7 +1,7 @@
 import classification.train_model as tm
 from tests.test_classification.mock_config import MockConfig
-from mock_model import MockModel
-from classification.data.image_data_class import VegetableData
+from tests.test_classification.mock_model import MockModel
+from classification.data.image_data_class import ImageDataset
 from classification.models.ViT import CustomizedViT
 
 
@@ -14,5 +14,3 @@ def test_get_models_and_logger():
     assert models[0].__class__ == CustomizedViT
 
 
-def test_train_model():
-    pass
