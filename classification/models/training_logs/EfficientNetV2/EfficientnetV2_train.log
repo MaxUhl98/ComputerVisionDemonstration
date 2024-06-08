@@ -53,3 +53,497 @@
 2024-06-07 17:48:37 - INFO - Starting training...
 2024-06-07 17:50:26 - INFO - Epoch: 5 | Train Loss: 2.5655 | Train Accuracy: 0.8493 | Val Loss: 2.5325 | Val Accuracy: 0.8868 | 
 2024-06-07 17:50:26 - INFO - Starting training...
+2024-06-07 17:52:17 - INFO - Epoch: 6 | Train Loss: 2.5341 | Train Accuracy: 0.8803 | Val Loss: 2.5026 | Val Accuracy: 0.9085 | 
+2024-06-07 17:52:17 - INFO - Starting training...
+2024-06-07 17:54:06 - INFO - Epoch: 7 | Train Loss: 2.5039 | Train Accuracy: 0.9090 | Val Loss: 2.4803 | Val Accuracy: 0.9235 | 
+2024-06-07 17:54:06 - INFO - Starting training...
+2024-06-07 17:55:56 - INFO - Epoch: 8 | Train Loss: 2.4837 | Train Accuracy: 0.9224 | Val Loss: 2.4688 | Val Accuracy: 0.9318 | 
+2024-06-07 17:55:56 - INFO - Starting training...
+2024-06-07 17:57:47 - INFO - Epoch: 9 | Train Loss: 2.4687 | Train Accuracy: 0.9363 | Val Loss: 2.4507 | Val Accuracy: 0.9514 | 
+2024-06-07 17:57:47 - INFO - Starting training...
+2024-06-07 17:59:37 - INFO - Epoch: 10 | Train Loss: 2.4530 | Train Accuracy: 0.9524 | Val Loss: 2.4401 | Val Accuracy: 0.9596 | 
+2024-06-07 17:59:37 - INFO - Starting training...
+2024-06-07 18:01:28 - INFO - Epoch: 11 | Train Loss: 2.4423 | Train Accuracy: 0.9617 | Val Loss: 2.4321 | Val Accuracy: 0.9701 | 
+2024-06-07 18:01:28 - INFO - Starting training...
+2024-06-07 18:03:18 - INFO - Epoch: 12 | Train Loss: 2.4329 | Train Accuracy: 0.9703 | Val Loss: 2.4229 | Val Accuracy: 0.9758 | 
+2024-06-07 18:03:18 - INFO - Starting training...
+2024-06-07 18:05:08 - INFO - Epoch: 13 | Train Loss: 2.4246 | Train Accuracy: 0.9768 | Val Loss: 2.4197 | Val Accuracy: 0.9772 | 
+2024-06-07 18:05:08 - INFO - Starting training...
+2024-06-07 18:06:54 - INFO - Epoch: 14 | Train Loss: 2.4191 | Train Accuracy: 0.9805 | Val Loss: 2.4163 | Val Accuracy: 0.9795 | 
+2024-06-07 18:06:54 - INFO - Starting training...
+2024-06-07 18:08:40 - INFO - Epoch: 15 | Train Loss: 2.4140 | Train Accuracy: 0.9854 | Val Loss: 2.4181 | Val Accuracy: 0.9776 | 
+2024-06-07 18:08:40 - INFO - Fold 1 Best Accuracy: 0.97946
+2024-06-07 18:08:40 - INFO - Starting training of fold 2
+2024-06-07 18:08:40 - INFO - Starting training...
+2024-06-07 18:10:25 - INFO - Epoch: 1 | Train Loss: 3.0742 | Train Accuracy: 0.5444 | Val Loss: 2.8161 | Val Accuracy: 0.7560 | 
+2024-06-07 18:10:25 - INFO - Starting training...
+2024-06-07 18:12:11 - INFO - Epoch: 2 | Train Loss: 2.7417 | Train Accuracy: 0.7237 | Val Loss: 2.6710 | Val Accuracy: 0.8083 | 
+2024-06-07 18:12:11 - INFO - Starting training...
+2024-06-07 18:13:57 - INFO - Epoch: 3 | Train Loss: 2.6564 | Train Accuracy: 0.7772 | Val Loss: 2.5944 | Val Accuracy: 0.8290 | 
+2024-06-07 18:13:57 - INFO - Starting training...
+2024-06-07 18:15:45 - INFO - Epoch: 4 | Train Loss: 2.5957 | Train Accuracy: 0.8176 | Val Loss: 2.5613 | Val Accuracy: 0.8578 | 
+2024-06-07 18:15:45 - INFO - Starting training...
+2024-06-07 18:17:36 - INFO - Epoch: 5 | Train Loss: 2.5668 | Train Accuracy: 0.8493 | Val Loss: 2.5301 | Val Accuracy: 0.8952 | 
+2024-06-07 18:17:36 - INFO - Starting training...
+2024-06-07 18:19:23 - INFO - Epoch: 6 | Train Loss: 2.5334 | Train Accuracy: 0.8861 | Val Loss: 2.4978 | Val Accuracy: 0.9137 | 
+2024-06-07 18:19:23 - INFO - Starting training...
+2024-06-07 18:21:12 - INFO - Epoch: 7 | Train Loss: 2.5014 | Train Accuracy: 0.9121 | Val Loss: 2.4746 | Val Accuracy: 0.9295 | 
+2024-06-07 18:21:12 - INFO - Starting training...
+2024-06-07 18:23:02 - INFO - Epoch: 8 | Train Loss: 2.4804 | Train Accuracy: 0.9262 | Val Loss: 2.4607 | Val Accuracy: 0.9393 | 
+2024-06-07 18:23:02 - INFO - Starting training...
+2024-06-07 18:24:51 - INFO - Epoch: 9 | Train Loss: 2.4621 | Train Accuracy: 0.9441 | Val Loss: 2.4489 | Val Accuracy: 0.9523 | 
+2024-06-07 18:24:51 - INFO - Starting training...
+2024-06-07 18:26:37 - INFO - Epoch: 10 | Train Loss: 2.4505 | Train Accuracy: 0.9554 | Val Loss: 2.4407 | Val Accuracy: 0.9575 | 
+2024-06-07 18:26:37 - INFO - Starting training...
+2024-06-07 18:28:26 - INFO - Epoch: 11 | Train Loss: 2.4406 | Train Accuracy: 0.9618 | Val Loss: 2.4344 | Val Accuracy: 0.9651 | 
+2024-06-07 18:28:26 - INFO - Starting training...
+2024-06-07 18:30:14 - INFO - Epoch: 12 | Train Loss: 2.4331 | Train Accuracy: 0.9684 | Val Loss: 2.4307 | Val Accuracy: 0.9699 | 
+2024-06-07 18:30:14 - INFO - Starting training...
+2024-06-07 18:32:05 - INFO - Epoch: 13 | Train Loss: 2.4285 | Train Accuracy: 0.9739 | Val Loss: 2.4245 | Val Accuracy: 0.9728 | 
+2024-06-07 18:32:05 - INFO - Starting training...
+2024-06-07 18:33:57 - INFO - Epoch: 14 | Train Loss: 2.4205 | Train Accuracy: 0.9804 | Val Loss: 2.4213 | Val Accuracy: 0.9751 | 
+2024-06-07 18:33:58 - INFO - Starting training...
+2024-06-07 18:35:53 - INFO - Epoch: 15 | Train Loss: 2.4167 | Train Accuracy: 0.9817 | Val Loss: 2.4224 | Val Accuracy: 0.9712 | 
+2024-06-07 18:35:53 - INFO - Fold 2 Best Accuracy: 0.97512
+2024-06-07 18:35:53 - INFO - Starting training of fold 3
+2024-06-07 18:35:53 - INFO - Starting training...
+2024-06-07 18:39:18 - INFO - Epoch: 1 | Train Loss: 3.0658 | Train Accuracy: 0.5677 | Val Loss: 2.8260 | Val Accuracy: 0.7722 | 
+2024-06-07 18:39:18 - INFO - Starting training...
+2024-06-07 18:42:44 - INFO - Epoch: 2 | Train Loss: 2.7403 | Train Accuracy: 0.7309 | Val Loss: 2.6711 | Val Accuracy: 0.8055 | 
+2024-06-07 18:42:44 - INFO - Starting training...
+2024-06-07 18:46:08 - INFO - Epoch: 3 | Train Loss: 2.6581 | Train Accuracy: 0.7779 | Val Loss: 2.6017 | Val Accuracy: 0.8261 | 
+2024-06-07 18:46:08 - INFO - Starting training...
+2024-06-07 18:49:31 - INFO - Epoch: 4 | Train Loss: 2.6023 | Train Accuracy: 0.8152 | Val Loss: 2.5609 | Val Accuracy: 0.8528 | 
+2024-06-07 18:49:31 - INFO - Starting training...
+2024-06-07 18:52:51 - INFO - Epoch: 5 | Train Loss: 2.5660 | Train Accuracy: 0.8502 | Val Loss: 2.5226 | Val Accuracy: 0.8925 | 
+2024-06-07 18:52:51 - INFO - Starting training...
+2024-06-07 18:56:11 - INFO - Epoch: 6 | Train Loss: 2.5316 | Train Accuracy: 0.8782 | Val Loss: 2.4960 | Val Accuracy: 0.9146 | 
+2024-06-07 18:56:11 - INFO - Starting training...
+2024-06-07 18:59:25 - INFO - Epoch: 7 | Train Loss: 2.5028 | Train Accuracy: 0.9090 | Val Loss: 2.4774 | Val Accuracy: 0.9265 | 
+2024-06-07 18:59:25 - INFO - Starting training...
+2024-06-07 19:02:41 - INFO - Epoch: 8 | Train Loss: 2.4862 | Train Accuracy: 0.9196 | Val Loss: 2.4673 | Val Accuracy: 0.9320 | 
+2024-06-07 19:02:41 - INFO - Starting training...
+2024-06-07 19:06:01 - INFO - Epoch: 9 | Train Loss: 2.4695 | Train Accuracy: 0.9347 | Val Loss: 2.4549 | Val Accuracy: 0.9470 | 
+2024-06-07 19:06:01 - INFO - Starting training...
+2024-06-07 19:09:23 - INFO - Epoch: 10 | Train Loss: 2.4587 | Train Accuracy: 0.9461 | Val Loss: 2.4473 | Val Accuracy: 0.9543 | 
+2024-06-07 19:09:23 - INFO - Starting training...
+2024-06-07 19:12:46 - INFO - Epoch: 11 | Train Loss: 2.4457 | Train Accuracy: 0.9577 | Val Loss: 2.4355 | Val Accuracy: 0.9628 | 
+2024-06-07 19:12:46 - INFO - Starting training...
+2024-06-07 19:16:14 - INFO - Epoch: 12 | Train Loss: 2.4380 | Train Accuracy: 0.9632 | Val Loss: 2.4307 | Val Accuracy: 0.9658 | 
+2024-06-07 19:16:14 - INFO - Starting training...
+2024-06-07 19:19:39 - INFO - Epoch: 13 | Train Loss: 2.4310 | Train Accuracy: 0.9697 | Val Loss: 2.4281 | Val Accuracy: 0.9674 | 
+2024-06-07 19:19:39 - INFO - Starting training...
+2024-06-07 19:23:03 - INFO - Epoch: 14 | Train Loss: 2.4254 | Train Accuracy: 0.9747 | Val Loss: 2.4254 | Val Accuracy: 0.9724 | 
+2024-06-07 19:23:03 - INFO - Starting training...
+2024-06-07 19:26:26 - INFO - Epoch: 15 | Train Loss: 2.4181 | Train Accuracy: 0.9819 | Val Loss: 2.4209 | Val Accuracy: 0.9751 | 
+2024-06-07 19:26:26 - INFO - Starting training...
+2024-06-07 19:29:48 - INFO - Epoch: 16 | Train Loss: 2.4131 | Train Accuracy: 0.9878 | Val Loss: 2.4136 | Val Accuracy: 0.9845 | 
+2024-06-07 19:29:48 - INFO - Starting training...
+2024-06-07 19:33:10 - INFO - Epoch: 17 | Train Loss: 2.4082 | Train Accuracy: 0.9906 | Val Loss: 2.4119 | Val Accuracy: 0.9838 | 
+2024-06-07 19:33:10 - INFO - Starting training...
+2024-06-07 19:36:34 - INFO - Epoch: 18 | Train Loss: 2.4050 | Train Accuracy: 0.9922 | Val Loss: 2.4095 | Val Accuracy: 0.9863 | 
+2024-06-07 19:36:34 - INFO - Starting training...
+2024-06-07 19:39:59 - INFO - Epoch: 19 | Train Loss: 2.4019 | Train Accuracy: 0.9951 | Val Loss: 2.4122 | Val Accuracy: 0.9817 | 
+2024-06-07 19:39:59 - INFO - Fold 3 Best Accuracy: 0.98630
+2024-06-07 19:39:59 - INFO - Starting training of fold 4
+2024-06-07 19:39:59 - INFO - Starting training...
+2024-06-07 19:43:17 - INFO - Epoch: 1 | Train Loss: 3.0613 | Train Accuracy: 0.5568 | Val Loss: 2.7859 | Val Accuracy: 0.7308 | 
+2024-06-07 19:43:17 - INFO - Starting training...
+2024-06-07 19:46:27 - INFO - Epoch: 2 | Train Loss: 2.7350 | Train Accuracy: 0.7222 | Val Loss: 2.6603 | Val Accuracy: 0.8240 | 
+2024-06-07 19:46:27 - INFO - Starting training...
+2024-06-07 19:49:38 - INFO - Epoch: 3 | Train Loss: 2.6584 | Train Accuracy: 0.7784 | Val Loss: 2.6058 | Val Accuracy: 0.8354 | 
+2024-06-07 19:49:38 - INFO - Starting training...
+2024-06-07 19:52:48 - INFO - Epoch: 4 | Train Loss: 2.6000 | Train Accuracy: 0.8201 | Val Loss: 2.5625 | Val Accuracy: 0.8667 | 
+2024-06-07 19:52:48 - INFO - Starting training...
+2024-06-07 19:55:59 - INFO - Epoch: 5 | Train Loss: 2.5676 | Train Accuracy: 0.8543 | Val Loss: 2.5258 | Val Accuracy: 0.8986 | 
+2024-06-07 19:55:59 - INFO - Starting training...
+2024-06-07 19:59:10 - INFO - Epoch: 6 | Train Loss: 2.5317 | Train Accuracy: 0.8830 | Val Loss: 2.4984 | Val Accuracy: 0.9089 | 
+2024-06-07 19:59:10 - INFO - Starting training...
+2024-06-07 20:02:20 - INFO - Epoch: 7 | Train Loss: 2.5055 | Train Accuracy: 0.9050 | Val Loss: 2.4745 | Val Accuracy: 0.9269 | 
+2024-06-07 20:02:20 - INFO - Starting training...
+2024-06-07 20:05:30 - INFO - Epoch: 8 | Train Loss: 2.4841 | Train Accuracy: 0.9203 | Val Loss: 2.4636 | Val Accuracy: 0.9317 | 
+2024-06-07 20:05:30 - INFO - Starting training...
+2024-06-07 20:08:40 - INFO - Epoch: 9 | Train Loss: 2.4690 | Train Accuracy: 0.9360 | Val Loss: 2.4463 | Val Accuracy: 0.9548 | 
+2024-06-07 20:08:40 - INFO - Starting training...
+2024-06-07 20:11:51 - INFO - Epoch: 10 | Train Loss: 2.4546 | Train Accuracy: 0.9507 | Val Loss: 2.4394 | Val Accuracy: 0.9614 | 
+2024-06-07 20:11:51 - INFO - Starting training...
+2024-06-07 20:15:01 - INFO - Epoch: 11 | Train Loss: 2.4423 | Train Accuracy: 0.9623 | Val Loss: 2.4309 | Val Accuracy: 0.9678 | 
+2024-06-07 20:15:01 - INFO - Starting training...
+2024-06-07 20:18:11 - INFO - Epoch: 12 | Train Loss: 2.4337 | Train Accuracy: 0.9674 | Val Loss: 2.4271 | Val Accuracy: 0.9676 | 
+2024-06-07 20:18:11 - INFO - Starting training...
+2024-06-07 20:21:21 - INFO - Epoch: 13 | Train Loss: 2.4278 | Train Accuracy: 0.9717 | Val Loss: 2.4233 | Val Accuracy: 0.9719 | 
+2024-06-07 20:21:21 - INFO - Starting training...
+2024-06-07 20:24:32 - INFO - Epoch: 14 | Train Loss: 2.4224 | Train Accuracy: 0.9788 | Val Loss: 2.4174 | Val Accuracy: 0.9785 | 
+2024-06-07 20:24:32 - INFO - Starting training...
+2024-06-07 20:27:42 - INFO - Epoch: 15 | Train Loss: 2.4155 | Train Accuracy: 0.9841 | Val Loss: 2.4139 | Val Accuracy: 0.9820 | 
+2024-06-07 20:27:42 - INFO - Starting training...
+2024-06-07 20:30:52 - INFO - Epoch: 16 | Train Loss: 2.4108 | Train Accuracy: 0.9890 | Val Loss: 2.4131 | Val Accuracy: 0.9822 | 
+2024-06-07 20:30:52 - INFO - Starting training...
+2024-06-07 20:34:02 - INFO - Epoch: 17 | Train Loss: 2.4066 | Train Accuracy: 0.9913 | Val Loss: 2.4099 | Val Accuracy: 0.9854 | 
+2024-06-07 20:34:02 - INFO - Starting training...
+2024-06-07 20:37:12 - INFO - Epoch: 18 | Train Loss: 2.4047 | Train Accuracy: 0.9923 | Val Loss: 2.4095 | Val Accuracy: 0.9842 | 
+2024-06-07 20:37:12 - INFO - Starting training...
+2024-06-07 20:40:23 - INFO - Epoch: 19 | Train Loss: 2.4018 | Train Accuracy: 0.9940 | Val Loss: 2.4080 | Val Accuracy: 0.9854 | 
+2024-06-07 20:40:23 - INFO - Starting training...
+2024-06-07 20:43:33 - INFO - Epoch: 20 | Train Loss: 2.4013 | Train Accuracy: 0.9943 | Val Loss: 2.4075 | Val Accuracy: 0.9863 | 
+2024-06-07 20:43:33 - INFO - Starting training...
+2024-06-07 20:46:43 - INFO - Epoch: 21 | Train Loss: 2.3990 | Train Accuracy: 0.9964 | Val Loss: 2.4062 | Val Accuracy: 0.9877 | 
+2024-06-07 20:46:43 - INFO - Starting training...
+2024-06-07 20:49:53 - INFO - Epoch: 22 | Train Loss: 2.3978 | Train Accuracy: 0.9964 | Val Loss: 2.4053 | Val Accuracy: 0.9888 | 
+2024-06-07 20:49:53 - INFO - Starting training...
+2024-06-07 20:53:03 - INFO - Epoch: 23 | Train Loss: 2.3979 | Train Accuracy: 0.9969 | Val Loss: 2.4055 | Val Accuracy: 0.9879 | 
+2024-06-07 20:53:03 - INFO - Fold 4 Best Accuracy: 0.98881
+2024-06-07 20:53:03 - INFO - Total Validation Accuracy: 4.915541842680983
+2024-06-07 20:53:03 - INFO - {'fold_0': {'best_accuracy': 0.9858479799132618,
+            'train_acc': [tensor(0.5701, device='cuda:0'),
+                          tensor(0.7344, device='cuda:0'),
+                          tensor(0.7827, device='cuda:0'),
+                          tensor(0.8238, device='cuda:0'),
+                          tensor(0.8555, device='cuda:0'),
+                          tensor(0.8810, device='cuda:0'),
+                          tensor(0.9092, device='cuda:0'),
+                          tensor(0.9359, device='cuda:0'),
+                          tensor(0.9466, device='cuda:0'),
+                          tensor(0.9509, device='cuda:0'),
+                          tensor(0.9587, device='cuda:0'),
+                          tensor(0.9644, device='cuda:0'),
+                          tensor(0.9691, device='cuda:0'),
+                          tensor(0.9771, device='cuda:0'),
+                          tensor(0.9816, device='cuda:0'),
+                          tensor(0.9864, device='cuda:0'),
+                          tensor(0.9902, device='cuda:0'),
+                          tensor(0.9925, device='cuda:0'),
+                          tensor(0.9945, device='cuda:0')],
+            'train_loss': [3.0600412187785127,
+                           2.7219521992833076,
+                           2.649192678884868,
+                           2.5929622495696494,
+                           2.5571989665066237,
+                           2.530856564532231,
+                           2.5013472220323383,
+                           2.475662832712605,
+                           2.4592123849548564,
+                           2.451411525916009,
+                           2.4435182118067775,
+                           2.4363559032008597,
+                           2.4314250537078745,
+                           2.4245565366135895,
+                           2.4179782227878155,
+                           2.412946795025011,
+                           2.4086082188317377,
+                           2.4047259298989374,
+                           2.401792973279953],
+            'val_acc': [0.7612417256334171,
+                        0.8132846382104543,
+                        0.8365669938370235,
+                        0.8591645742981054,
+                        0.8908924902990185,
+                        0.907783611047706,
+                        0.9301529331202921,
+                        0.9449897283725177,
+                        0.949783154530929,
+                        0.9589134900707601,
+                        0.9639351746176672,
+                        0.9648482081716503,
+                        0.9696416343300617,
+                        0.9776306779274139,
+                        0.977402419538918,
+                        0.9803697785893631,
+                        0.9828806208628167,
+                        0.982652362474321,
+                        0.9858479799132618],
+            'val_loss': [2.7407538873435806,
+                         2.6627527675489437,
+                         2.5908590102717826,
+                         2.5543743241442383,
+                         2.5233454756493114,
+                         2.5007471072412755,
+                         2.4762990318075584,
+                         2.4566834416702714,
+                         2.449236713186668,
+                         2.443667211671815,
+                         2.4369379055761073,
+                         2.4321069847928345,
+                         2.4292003377510683,
+                         2.421306897253886,
+                         2.419235092880082,
+                         2.4175464349941618,
+                         2.413766217927863,
+                         2.4112297270419822,
+                         2.4096446359244577]},
+ 'fold_1': {'best_accuracy': 0.97945674503538,
+            'train_acc': [tensor(0.5722, device='cuda:0'),
+                          tensor(0.7296, device='cuda:0'),
+                          tensor(0.7782, device='cuda:0'),
+                          tensor(0.8159, device='cuda:0'),
+                          tensor(0.8493, device='cuda:0'),
+                          tensor(0.8803, device='cuda:0'),
+                          tensor(0.9090, device='cuda:0'),
+                          tensor(0.9224, device='cuda:0'),
+                          tensor(0.9363, device='cuda:0'),
+                          tensor(0.9524, device='cuda:0'),
+                          tensor(0.9617, device='cuda:0'),
+                          tensor(0.9703, device='cuda:0'),
+                          tensor(0.9768, device='cuda:0'),
+                          tensor(0.9805, device='cuda:0')],
+            'train_loss': [3.0632228398845145,
+                           2.7313434529478533,
+                           2.6591882098765267,
+                           2.600235199406199,
+                           2.5654921931942014,
+                           2.534052791386625,
+                           2.5038878158496245,
+                           2.4837456974234895,
+                           2.468697709323716,
+                           2.4530448615550995,
+                           2.4423228552306657,
+                           2.432909980089995,
+                           2.4245746825298253,
+                           2.4191355309347164],
+            'val_acc': [0.7546222323670395,
+                        0.8096325039945218,
+                        0.8246975576352431,
+                        0.8525450810317279,
+                        0.8867838393060945,
+                        0.9084683862131934,
+                        0.9235334398539147,
+                        0.9317507418397626,
+                        0.9513809632503994,
+                        0.9595982652362475,
+                        0.9700981511070532,
+                        0.9758046108194476,
+                        0.9771741611504223,
+                        0.97945674503538],
+            'val_loss': [2.7838989148174758,
+                         2.6702340797786297,
+                         2.6069280370308534,
+                         2.5617191191137274,
+                         2.532469612838578,
+                         2.5025951731814087,
+                         2.4803168660532817,
+                         2.4688464229124305,
+                         2.4506716406258353,
+                         2.4400951261938055,
+                         2.4320883394157797,
+                         2.422914330976723,
+                         2.4197343848917607,
+                         2.416276667239892]},
+ 'fold_2': {'best_accuracy': 0.9751198356539603,
+            'train_acc': [tensor(0.5444, device='cuda:0'),
+                          tensor(0.7237, device='cuda:0'),
+                          tensor(0.7772, device='cuda:0'),
+                          tensor(0.8176, device='cuda:0'),
+                          tensor(0.8493, device='cuda:0'),
+                          tensor(0.8861, device='cuda:0'),
+                          tensor(0.9121, device='cuda:0'),
+                          tensor(0.9262, device='cuda:0'),
+                          tensor(0.9441, device='cuda:0'),
+                          tensor(0.9554, device='cuda:0'),
+                          tensor(0.9618, device='cuda:0'),
+                          tensor(0.9684, device='cuda:0'),
+                          tensor(0.9739, device='cuda:0'),
+                          tensor(0.9804, device='cuda:0')],
+            'train_loss': [3.074151614721674,
+                           2.7416616425897082,
+                           2.6563572589933435,
+                           2.5956645568791967,
+                           2.5668003948500555,
+                           2.5334237550731995,
+                           2.5014447815661884,
+                           2.480370263113593,
+                           2.4621282302550154,
+                           2.4504752383179906,
+                           2.4405633202434456,
+                           2.433139638526596,
+                           2.4284848705695494,
+                           2.420529447550321],
+            'val_acc': [0.7559917826980141,
+                        0.8082629536635472,
+                        0.8290344670166628,
+                        0.8577950239671308,
+                        0.8952293996804382,
+                        0.9137183291485962,
+                        0.9294681579548049,
+                        0.9392832686601232,
+                        0.9522939968043825,
+                        0.9575439397397855,
+                        0.9650764665601461,
+                        0.9698698927185574,
+                        0.9728372517690025,
+                        0.9751198356539603],
+            'val_loss': [2.816149076406103,
+                         2.671037752262867,
+                         2.5944154384362434,
+                         2.5613151458058043,
+                         2.530107820121041,
+                         2.497846055204851,
+                         2.4746310876233735,
+                         2.4607072111463895,
+                         2.4489039826567156,
+                         2.440695394564719,
+                         2.434375293933562,
+                         2.430693447154804,
+                         2.424459343409016,
+                         2.4212539892127043]},
+ 'fold_3': {'best_accuracy': 0.9863044966902533,
+            'train_acc': [tensor(0.5677, device='cuda:0'),
+                          tensor(0.7309, device='cuda:0'),
+                          tensor(0.7779, device='cuda:0'),
+                          tensor(0.8152, device='cuda:0'),
+                          tensor(0.8502, device='cuda:0'),
+                          tensor(0.8782, device='cuda:0'),
+                          tensor(0.9090, device='cuda:0'),
+                          tensor(0.9196, device='cuda:0'),
+                          tensor(0.9347, device='cuda:0'),
+                          tensor(0.9461, device='cuda:0'),
+                          tensor(0.9577, device='cuda:0'),
+                          tensor(0.9632, device='cuda:0'),
+                          tensor(0.9697, device='cuda:0'),
+                          tensor(0.9747, device='cuda:0'),
+                          tensor(0.9819, device='cuda:0'),
+                          tensor(0.9878, device='cuda:0'),
+                          tensor(0.9906, device='cuda:0'),
+                          tensor(0.9922, device='cuda:0')],
+            'train_loss': [3.065826437769145,
+                           2.7402785124569915,
+                           2.658121089430621,
+                           2.602347263454521,
+                           2.5660196536213813,
+                           2.531570151339482,
+                           2.5027560524261783,
+                           2.4862369224972967,
+                           2.4694788445086373,
+                           2.458740822807716,
+                           2.4456572595739017,
+                           2.4379967403237837,
+                           2.431049518776636,
+                           2.4253504987615737,
+                           2.418080898096962,
+                           2.4130575715625375,
+                           2.408210006508514,
+                           2.405039251068213],
+            'val_acc': [0.7721981282812144,
+                        0.8055238530015978,
+                        0.8260671079662177,
+                        0.8527733394202237,
+                        0.892490299018489,
+                        0.9146313627025793,
+                        0.9265007989043598,
+                        0.9319790002282584,
+                        0.9470440538689797,
+                        0.9543483223008445,
+                        0.9627938826751883,
+                        0.9657612417256334,
+                        0.9673590504451038,
+                        0.9723807349920109,
+                        0.9751198356539603,
+                        0.9844784295822872,
+                        0.9837936544167998,
+                        0.9863044966902533],
+            'val_loss': [2.826005364856581,
+                         2.6710765849064737,
+                         2.601681313375487,
+                         2.56091674226914,
+                         2.5225982883550824,
+                         2.495987296104431,
+                         2.4773931033419867,
+                         2.4673009440846685,
+                         2.4549100694865205,
+                         2.44734527855894,
+                         2.4355439365345197,
+                         2.4306967536898423,
+                         2.4280890844164102,
+                         2.425365044252716,
+                         2.42087577120231,
+                         2.4136034841955145,
+                         2.411904133149307,
+                         2.4094579176311077]},
+ 'fold_4': {'best_accuracy': 0.9888127853881279,
+            'train_acc': [tensor(0.5568, device='cuda:0'),
+                          tensor(0.7222, device='cuda:0'),
+                          tensor(0.7784, device='cuda:0'),
+                          tensor(0.8201, device='cuda:0'),
+                          tensor(0.8543, device='cuda:0'),
+                          tensor(0.8830, device='cuda:0'),
+                          tensor(0.9050, device='cuda:0'),
+                          tensor(0.9203, device='cuda:0'),
+                          tensor(0.9360, device='cuda:0'),
+                          tensor(0.9507, device='cuda:0'),
+                          tensor(0.9623, device='cuda:0'),
+                          tensor(0.9674, device='cuda:0'),
+                          tensor(0.9717, device='cuda:0'),
+                          tensor(0.9788, device='cuda:0'),
+                          tensor(0.9841, device='cuda:0'),
+                          tensor(0.9890, device='cuda:0'),
+                          tensor(0.9913, device='cuda:0'),
+                          tensor(0.9923, device='cuda:0'),
+                          tensor(0.9940, device='cuda:0'),
+                          tensor(0.9943, device='cuda:0'),
+                          tensor(0.9964, device='cuda:0'),
+                          tensor(0.9964, device='cuda:0')],
+            'train_loss': [3.0612533268702293,
+                           2.7350011302606902,
+                           2.6584169109807396,
+                           2.599975017082952,
+                           2.567638581469111,
+                           2.5316523531057538,
+                           2.505507621451886,
+                           2.4840909283961694,
+                           2.468955024750563,
+                           2.454571206856818,
+                           2.442333866862485,
+                           2.4337020884030056,
+                           2.4277864107250298,
+                           2.422430090225526,
+                           2.41548315321442,
+                           2.410808233666594,
+                           2.4066085308572673,
+                           2.4046630219821514,
+                           2.4018312670888693,
+                           2.401338719103458,
+                           2.398976180675256,
+                           2.3978397794013477],
+            'val_acc': [0.7308219178082191,
+                        0.8239726027397261,
+                        0.8353881278538813,
+                        0.8666666666666667,
+                        0.8986301369863013,
+                        0.9089041095890411,
+                        0.9269406392694064,
+                        0.9317351598173516,
+                        0.9547945205479452,
+                        0.9614155251141553,
+                        0.9678082191780822,
+                        0.9675799086757991,
+                        0.9719178082191781,
+                        0.9785388127853881,
+                        0.9819634703196347,
+                        0.9821917808219178,
+                        0.9853881278538813,
+                        0.9842465753424657,
+                        0.9853881278538813,
+                        0.9863013698630136,
+                        0.9876712328767123,
+                        0.9888127853881279],
+            'val_loss': [2.7859155740181025,
+                         2.660300729048513,
+                         2.6058282826068626,
+                         2.5625143033744644,
+                         2.525763967611494,
+                         2.498424691005345,
+                         2.474548304167977,
+                         2.463563936470199,
+                         2.446286006565512,
+                         2.439397241947425,
+                         2.430900676407083,
+                         2.4270646006521517,
+                         2.423273449396565,
+                         2.4174355259776985,
+                         2.4139319014375227,
+                         2.4130751216498605,
+                         2.409886599457177,
+                         2.4095106847094794,
+                         2.4080445026829294,
+                         2.407523639010687,
+                         2.406192249625269,
+                         2.405340882983521]}}
