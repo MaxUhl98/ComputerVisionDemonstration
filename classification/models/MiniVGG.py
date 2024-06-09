@@ -7,10 +7,10 @@ class MiniVGG(nn.Module):
     """miniVGG with SiLU instead of ReLU
     linear 1 and linear 2 are the shapes of the Linear layers in the last block of the MiniVGG"""
 
-    def __init__(self, input_channels: int, hidden_units: int = 128, n_classes: int = 28, dropout: float = .1,
+    def __init__(self, input_channels: int, hidden_units: int = 128, num_classes: int = 28, dropout: float = .1,
                  linear_size: int = 64):
         linear1 = (512, linear_size)
-        linear2 = (linear_size, n_classes)
+        linear2 = (linear_size, num_classes)
         super(MiniVGG, self).__init__()
         self.softmax = nn.Softmax(dim=1)
         self.conv_block = nn.Sequential(

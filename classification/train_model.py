@@ -49,7 +49,7 @@ def get_models_and_logger(cfg: DemonstrationConfig) -> tuple[list[nn.Module], lo
     model_key = cfg.model_name.lower()
     if model_key in model_mapping:
         model_class, model_kwargs_call, log_folder = model_mapping[model_key]
-        models = [model_class(model_kwargs_call()) for _ in range(cfg.num_folds)]
+        models = [model_class(model_kwargs_call(), num_classes=len(cfg.class_mappings)) for _ in range(cfg.num_folds)]
         train_logger = get_logger(name=cfg.model_name + '_train',
                                   base_filepath=f'{cfg.log_dir}/{log_folder}')
     else:

@@ -45,6 +45,7 @@ class DemonstrationConfig:
                                       'Strawberry__Healthy': 24, 'Strawberry__Rotten': 25, 'Tomato__Healthy': 26,
                                       'Tomato__Rotten': 27}
 
+
     @staticmethod
     def get_efficientnet_kwargs() -> dict[str, Any]:
         return {

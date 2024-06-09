@@ -79,7 +79,7 @@ def demonstrate(cfg: DemonstrationConfig):
     trained_model_weight_paths = [torch.load(cfg.model_save_path.split('.')[0] + f'_fold_{num}.pth', map_location=torch.get_default_device()) for num in
                                   range(cfg.num_folds)]
 
-    trained_models = [model_class(model_kwarg_getter()) for model_weights in
+    trained_models = [model_class(model_kwarg_getter(), num_classes=len(cfg.class_mappings)) for model_weights in
                       trained_model_weight_paths]  # Initialize Models
     [trained_models[num].load_state_dict(model_weights) for num, model_weights in
      enumerate(trained_model_weight_paths)]  # Load model weights
