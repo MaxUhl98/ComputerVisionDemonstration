@@ -1,6 +1,6 @@
 from classification.models.EfficientNetV2 import CustomizedEfficientnetV2
 import torch
-from tests.test_classification.mock_config import MockConfig
+from unittests.test_classification.mock_config import MockConfig
 
 
 def test_vit():

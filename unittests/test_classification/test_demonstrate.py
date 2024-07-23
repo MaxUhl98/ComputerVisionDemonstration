@@ -2,12 +2,12 @@ import torch
 
 import classification.demonstrate as d
 from classification.data.image_data_class import ImageDataset
-from tests.test_classification.mock_config import MockConfig
+from unittests.test_classification.mock_config import MockConfig
 import pandas as pd
 from pathlib import Path
 import matplotlib.pyplot as plt
 import matplotlib
-
+import os
 
 def get_img_data():
     paths = sum([list(Path(dir_path).glob('**/*/*.jpg')) for dir_path in MockConfig.train_data_paths], [])
@@ -17,6 +17,8 @@ def get_img_data():
 
 
 def test_plot_labelled_images():
+    if os.getcwd().rsplit('\\', 1)[1] == 'test_classification':
+        os.chdir('../..')
     matplotlib.use('Agg')
     images = [i[0].permute([1, 2, 0]) for i in get_img_data()]
     d.plot_labelled_images(images, ['Eagle' for _ in range(4)], ['Eagle', 'Eagle', 'Space', 'Space'], 2, 2)

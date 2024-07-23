@@ -1,4 +1,5 @@
 import logging
+import os
 
 import torch.cuda
 
@@ -88,4 +89,5 @@ def train_model(cfg: DemonstrationConfig) -> None:
 
 
 if __name__ == '__main__':
+    os.chdir('..')
     train_model(DemonstrationConfig())

@@ -4,10 +4,13 @@ import pytest
 from classification.data.image_data_class import ImageDataset, get_class_mappings
 from pathlib import Path
 import pandas as pd
-from tests.test_classification.mock_config import MockConfig
+from unittests.test_classification.mock_config import MockConfig
+
 
 class TestImageDataset:
     def set_up(self):
+        if os.getcwd().rsplit('\\', 1)[1] == 'data_tests':
+            os.chdir('../../..')
         self.cfg = MockConfig()
         paths = sum([list(Path(dir_path).glob('**/*/*.jpg')) for dir_path in self.cfg.train_data_paths], [])
         data = pd.DataFrame(

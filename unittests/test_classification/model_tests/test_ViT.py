@@ -1,6 +1,6 @@
 from classification.models.ViT import CustomizedViT
 import torch
-from tests.test_classification.mock_config import MockConfig
+from unittests.test_classification.mock_config import MockConfig
 
 
 def test_vit():

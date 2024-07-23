@@ -1,6 +1,6 @@
 from classification.models.ConvNeXt_V2 import CustomizedConvNeXT_V2
 import torch
-from tests.test_classification.mock_config import MockConfig
+from unittests.test_classification.mock_config import MockConfig
 
 
 def test_convnextv2():

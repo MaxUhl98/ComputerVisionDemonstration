@@ -1,21 +1,22 @@
 import torch.nn
-
 import classification.train_functions as t
-from tests.test_classification.mock_model import MockModel
-from tests.test_classification.mock_config import MockConfig
+from unittests.test_classification.mock_model import MockModel
+from unittests.test_classification.mock_config import MockConfig
 from classification.data.image_data_class import ImageDataset
 from pathlib import Path
 import pandas as pd
 from torch.utils.data import DataLoader
 from torch import nn
-from torch.optim import AdamW
+import os
 from logging import Logger
-from tests.test_classification.mock_optimizer import MockOptimizer
+from unittests.test_classification.mock_optimizer import MockOptimizer
 
 
 class TestTrainFunctions:
 
     def set_up(self):
+        if os.getcwd().rsplit('\\',1)[1] == 'test_classification':
+            os.chdir('../..')
         torch.set_default_device('cpu')
         self.cfg = MockConfig()
         self.model = MockModel(2)
