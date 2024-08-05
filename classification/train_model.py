@@ -84,11 +84,11 @@ def train_model(cfg: DemonstrationConfig) -> None:
     train_logger.info(summary(models[0], cfg.model_input_size))
     optimizers = [AdamW(lr=cfg.learning_rate, params=model.parameters()) for model in models]
     if cfg.lr_scheduling:
-        optimizers = [CosineAnnealingWarmRestarts(opti, 10, eta_min=10**-8) for opti in optimizers]
+        optimizers = [CosineAnnealingWarmRestarts(opti, cfg.t_0, eta_min=10**-8) for opti in optimizers]
     fold_results = k_fold_train(models=models, paths_to_data=cfg.train_data_paths, optimizers=optimizers,
                                 loss_fn=loss_fn, logger=train_logger, device=device, cfg=cfg)
     train_logger.info(pformat(fold_results))
-    for k,v in fold_results.values():
+    for k,v in fold_results.items():
         train_logger.info(f'Best loss in {k}: {v["best_accuracy"]}')
 
 
