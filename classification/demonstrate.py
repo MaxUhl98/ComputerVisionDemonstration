@@ -1,5 +1,3 @@
-import sys
-
 import torch
 from torchmetrics import ConfusionMatrix
 from mlxtend.plotting import plot_confusion_matrix
@@ -17,6 +15,7 @@ from utils.torch_helpers import set_default_device
 from tqdm import tqdm
 from pathlib import Path
 import pandas as pd
+from torch import nn
 
 
 def plot_labelled_images(images: list[torch.Tensor], prediction_labels: list[str], true_labels: list[str],
@@ -63,14 +62,12 @@ def plot_test_confusion_matrix(predictions: torch.Tensor, targets: torch.Tensor,
     plt.show()
 
 
-def demonstrate(cfg: DemonstrationConfig):
-    """
-    Demonstrate model performance by plotting labelled images and a confusion matrix.
+def load_pretrained_models(cfg: DemonstrationConfig) -> list[nn.Module]:
+    """Loads pretrained models for the specified configuration.
 
-    :param cfg: DemonstrationConfig object containing configuration for the demonstration.
-    :return: None
+    :param cfg: Configuration object
+    :return: Pretrained models
     """
-    set_default_device()
     model_mapping = {
         'efficientnetv2': (CustomizedEfficientnetV2, cfg.get_efficientnet_kwargs, 'EfficientNetV2'),
         'vit': (CustomizedViT, cfg.get_vit_kwargs, 'ViT'),
@@ -78,23 +75,41 @@ def demonstrate(cfg: DemonstrationConfig):
         'convnext_v2': (CustomizedConvNeXT_V2, cfg.get_convnextv2_kwargs, 'ConvNeXt_V2')
     }
     model_class, model_kwarg_getter, dir_name = model_mapping[cfg.model_name.lower()]
-    trained_model_weight_paths = [torch.load(cfg.model_save_path.split('.')[0] + f'_fold_{num}.pth', map_location=torch.get_default_device()) for num in
-                                  range(cfg.num_folds)]
-
+    trained_model_weight_paths = [
+        torch.load(cfg.model_save_path.split('.')[0] + f'_fold_{num}.pth', map_location=torch.get_default_device()) for
+        num in
+        range(cfg.num_folds)]
     trained_models = [model_class(model_kwarg_getter(), num_classes=len(cfg.class_mappings)) for model_weights in
                       trained_model_weight_paths]  # Initialize Models
     [trained_models[num].load_state_dict(model_weights) for num, model_weights in
      enumerate(trained_model_weight_paths)]  # Load model weights
+    return trained_models
+
+
+def get_test_paths(cfg: DemonstrationConfig) -> list[str]:
+    """Finds all jpg, png and jpeg files in the configured test directory and concatenates them into a singular list
+
+    :param cfg: Configuration object.
+    :return: List of test image file paths.
+    """
     paths = sum([list(Path(dir_path).glob('**/*/*.jpg')) for dir_path in cfg.test_data_paths], [])
     paths += sum([list(Path(dir_path).glob('**/*/*.png')) for dir_path in cfg.test_data_paths], [])
     paths += sum([list(Path(dir_path).glob('**/*/*.jpeg')) for dir_path in cfg.test_data_paths], [])
-    data = pd.DataFrame(
-        {'path': paths, 'target': [cfg.class_mappings.get(data_path.parent.name) for data_path in paths]})
-    test_data = ImageDataset(data)
+    return paths
+
+
+def get_test_predictions(test_data: ImageDataset, cfg: DemonstrationConfig,
+                         trained_models: list[nn.Module]) -> tuple[torch.Tensor, torch.Tensor]:
+    """Performs model inference to receive predictions for the test dataset
+
+    :param test_data: Test dataset to perform inference on.
+    :param cfg: Configuration Object
+    :param trained_models: Models to use for inference
+    :return: Tuple containing (prediction labels, target labels)
+    """
     test_data_loader = DataLoader(test_data, batch_size=cfg.batch_size)
     all_predictions = []
     all_targets = []
-
     with torch.inference_mode():
         for batch in tqdm(test_data_loader):
             X, y = batch
@@ -104,7 +119,18 @@ def demonstrate(cfg: DemonstrationConfig):
             all_targets += [y.flatten()]
     all_predictions = torch.concat(all_predictions)
     all_targets = torch.concat(all_targets)
+    return all_predictions, all_targets
 
+
+def get_samples(test_data: ImageDataset, all_predictions: torch.Tensor,
+                cfg: DemonstrationConfig) -> tuple[list[torch.Tensor], list[str], list[str]]:
+    """Uses the ground truth data and predictions to prepare data samples for the plot generation
+
+    :param test_data: Test dataset
+    :param all_predictions: Model predictions for the test dataset
+    :param cfg: Configuration object
+    :return: Tuple containing (Sample Images, Sample Labels, Sample Predicted Labels)
+    """
     sample_datapoints = zip(
         *[(test_data.load_image(idx), test_data.targets[idx].item(), all_predictions[idx].item()) for idx in
           sample(range(len(test_data)), 16)])
@@ -112,7 +138,24 @@ def demonstrate(cfg: DemonstrationConfig):
     label2_class_mapping = {v: k for k, v in cfg.class_mappings.items()}
     sample_labels, sample_predictions = [label2_class_mapping[prediction] for prediction in sample_predictions], [
         label2_class_mapping[label] for label in sample_labels]
+    return sample_images, sample_labels, sample_predictions
 
+
+def demonstrate(cfg: DemonstrationConfig) -> None:
+    """
+    Demonstrate model performance by plotting labelled images and a confusion matrix.
+
+    :param cfg: DemonstrationConfig object containing configuration for the demonstration.
+    :return: None
+    """
+    set_default_device()
+    trained_models = load_pretrained_models(cfg)
+    paths = get_test_paths(cfg)
+    data = pd.DataFrame(
+        {'path': paths, 'target': [cfg.class_mappings.get(data_path.parent.name) for data_path in paths]})
+    test_data = ImageDataset(data)
+    all_predictions, all_targets = get_test_predictions(test_data, cfg, trained_models)
+    sample_images, sample_labels, sample_predictions = get_samples(test_data, all_predictions, cfg)
     plot_labelled_images(sample_images, prediction_labels=sample_predictions, true_labels=sample_labels, num_cols=4,
                          num_rows=4)
     plot_test_confusion_matrix(all_predictions.to(torch.get_default_device()),
