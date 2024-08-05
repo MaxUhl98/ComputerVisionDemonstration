@@ -1,3 +1,5 @@
+import sys
+
 import torch
 from torchmetrics import ConfusionMatrix
 from mlxtend.plotting import plot_confusion_matrix
@@ -83,8 +85,9 @@ def demonstrate(cfg: DemonstrationConfig):
                       trained_model_weight_paths]  # Initialize Models
     [trained_models[num].load_state_dict(model_weights) for num, model_weights in
      enumerate(trained_model_weight_paths)]  # Load model weights
-    paths = sum([list(Path(dir_path).glob('**/*/*.jpg')) for dir_path in cfg.test_data_path], [])
-    paths += sum([list(Path(dir_path).glob('**/*/*.png')) for dir_path in cfg.test_data_path], [])
+    paths = sum([list(Path(dir_path).glob('**/*/*.jpg')) for dir_path in cfg.test_data_paths], [])
+    paths += sum([list(Path(dir_path).glob('**/*/*.png')) for dir_path in cfg.test_data_paths], [])
+    paths += sum([list(Path(dir_path).glob('**/*/*.jpeg')) for dir_path in cfg.test_data_paths], [])
     data = pd.DataFrame(
         {'path': paths, 'target': [cfg.class_mappings.get(data_path.parent.name) for data_path in paths]})
     test_data = ImageDataset(data)
