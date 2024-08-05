@@ -2,7 +2,7 @@ import logging
 import os
 
 import torch.cuda
-
+from torch.optim.lr_scheduler import CosineAnnealingWarmRestarts
 from classification.models.EfficientNetV2 import CustomizedEfficientnetV2
 from classification.models.ViT import CustomizedViT
 from classification.models.MiniVGG import MiniVGG
@@ -83,9 +83,13 @@ def train_model(cfg: DemonstrationConfig) -> None:
     models, train_logger = get_models_and_logger(cfg=cfg)
     train_logger.info(summary(models[0], cfg.model_input_size))
     optimizers = [AdamW(lr=cfg.learning_rate, params=model.parameters()) for model in models]
+    if cfg.lr_scheduling:
+        optimizers = [CosineAnnealingWarmRestarts(opti, 10, eta_min=10**-8) for opti in optimizers]
     fold_results = k_fold_train(models=models, paths_to_data=cfg.train_data_paths, optimizers=optimizers,
                                 loss_fn=loss_fn, logger=train_logger, device=device, cfg=cfg)
     train_logger.info(pformat(fold_results))
+    for k,v in fold_results.values():
+        train_logger.info(f'Best loss in {k}: {v["best_accuracy"]}')
 
 
 if __name__ == '__main__':
