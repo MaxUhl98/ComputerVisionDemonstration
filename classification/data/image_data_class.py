@@ -9,7 +9,10 @@ from PIL import Image
 
 
 class ImageDataset(Dataset):
-    """Does not augment the data in any kind of way"""
+    """Class that brings all given images into a standardized format and prepares them for pytorch.
+    Has the option to augment data with transforms specified in the configuration file.
+
+    """
 
     data_paths: List[Path]
     labels: torch.Tensor
@@ -18,14 +21,17 @@ class ImageDataset(Dataset):
     def __init__(self, data: pd.DataFrame, data_type: torch.dtype = torch.float32,
                  augmentations: Union[Transform, None] = None):
         super(ImageDataset, self).__init__()
+        self.device = torch.get_default_device()
         self.data = data
         self.data_paths = data.path.values
         self.targets = torch.from_numpy(data.target.values.astype(np.int64))
         self.image_processor = Compose(
             [ToPILImage(mode='RGB'), PILToTensor(), Resize((224, 224)), ToDtype(data_type, scale=True)])
-        self.images = [self.image_processor(self.load_image(idx))[:3, :, :] for idx in range(len(self.targets))]
+        self.images = [self.image_processor(self.load_image(idx))[:3, :, :].to('cpu') for idx in
+                       range(len(self.targets))]
         if isinstance(augmentations, Transform):
             self.images = augmentations(self.images)
+            self.images = [img.to(self.device) for img in self.images]
 
     def __len__(self) -> int:
         """Returns total number of samples"""
@@ -39,8 +45,9 @@ class ImageDataset(Dataset):
     def __getitem__(self, idx) -> tuple[torch.Tensor, torch.Tensor]:
         """Returns one sample of data, data and label (X,y)"""
 
-        return self.images[idx] if self.images[idx].shape[0] == 3 else torch.cat(
-            [self.images[idx], self.images[idx], self.images[idx]], 0), self.targets[idx]
+        return (self.images[idx].to(self.device) if self.images[idx].shape[0] == 3 else torch.cat(
+            [self.images[idx], self.images[idx], self.images[idx]], 0).to(self.device),
+                self.targets[idx].to(self.device))
 
 
 def get_class_mappings(_data: ImageDataset) -> Dict[str, int]:
