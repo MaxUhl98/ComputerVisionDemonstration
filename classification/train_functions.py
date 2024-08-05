@@ -13,7 +13,7 @@ import torch
 from tqdm.auto import tqdm
 from typing import Dict, List, Union
 import torch.nn.functional as F
-from sklearn.model_selection import StratifiedKFold
+from sklearn.model_selection import StratifiedKFold, train_test_split
 from torch.utils.data import DataLoader
 from classification.data.image_data_class import ImageDataset
 
@@ -53,7 +53,7 @@ def train_step(model: torch.nn.Module,
                dataloader: torch.utils.data.DataLoader,
                loss_fn: torch.nn.Module,
                optimizer: torch.optim.Optimizer,
-               device: torch.device, lr_scheduling: bool, logger: logging.Logger, cfg: DemonstrationConfig,
+               device: str, lr_scheduling: bool, logger: logging.Logger, cfg: DemonstrationConfig,
                log_batch_loss: bool = False) -> tuple[float, float]:
     """
     Trains a PyTorch model for a single epoch.
@@ -71,7 +71,7 @@ def train_step(model: torch.nn.Module,
     """
     # Put model in train mode
     model.train()
-    scaler = torch.cuda.amp.GradScaler(enabled=cfg.apex)
+    scaler = torch.amp.GradScaler(device, enabled=cfg.apex)
     avg_meter = AverageMeter()
 
     correct_predictions = 0
@@ -89,19 +89,17 @@ def train_step(model: torch.nn.Module,
         X = X.to(device)
         y = y.to(device)
 
-        with torch.cuda.amp.autocast(enabled=cfg.apex):
+        with torch.amp.autocast(device, enabled=cfg.apex):
             y_pred = F.softmax(model(X), 1)
             correct_predictions += (y_pred.argmax(dim=1) == y).sum()
             total_datapoints += y_pred.shape[0]
 
-        with torch.cuda.amp.autocast(enabled=cfg.apex):
+        with torch.amp.autocast(device, enabled=cfg.apex):
             loss = loss_fn(y_pred, y)
             train_loss += loss.item()
 
         scaler.scale(loss).backward()
 
-        if cfg.gradient_accumulation_steps > 1:
-            loss = loss / cfg.gradient_accumulation_steps
         torch.nn.utils.clip_grad_norm_(model.parameters(), cfg.max_grad_norm)
 
         avg_meter.update(loss.item())
@@ -258,9 +256,15 @@ def k_fold_train(models: List[torch.nn.Module], paths_to_data: List[Union[os.Pat
     folder = StratifiedKFold(n_splits=len(models), shuffle=cfg.shuffle_folds)
     paths = sum([list(Path(dir_path).glob('**/*/*.jpg')) for dir_path in paths_to_data], [])
     paths += sum([list(Path(dir_path).glob('**/*/*.png')) for dir_path in paths_to_data], [])
+    paths += sum([list(Path(dir_path).glob('**/*/*.jpeg')) for dir_path in paths_to_data], [])
     data = pd.DataFrame(
         {'path': paths, 'target': [cfg.class_mappings.get(data_path.parent.name) for data_path in paths]})
-    data = ImageDataset(data)
+    if cfg.use_reduced_dataset:
+        train_idx, _, _, _ = train_test_split(data.index, data.target, train_size=cfg.reduced_percentage, stratify=data.target,
+                                              shuffle=cfg.shuffle_folds)
+        data = data.loc[train_idx]
+    data = ImageDataset(data, augmentations=cfg.augmentations)
+    print(f'Training data with size {len(data)} loaded.')
     folds = folder.split([num for num in range(len(data))], data.targets.cpu().numpy())
     fold_results = {}
     base_save_path = cfg.model_save_path.split('.pth')[0]
@@ -272,12 +276,15 @@ def k_fold_train(models: List[torch.nn.Module], paths_to_data: List[Union[os.Pat
         train_indexes, validation_indexes = torch.from_numpy(train_indexes), torch.from_numpy(validation_indexes)
         train_data, validation_data = torch.utils.data.Subset(data, train_indexes), torch.utils.data.Subset(data,
                                                                                                             validation_indexes)
+        augmented_data = ImageDataset(train_data.dataset.data, augmentations=cfg.augmentations)
+        train_data = torch.utils.data.ConcatDataset([train_data,augmented_data])
         train_loader, validation_loader = DataLoader(train_data, batch_size=cfg.batch_size, shuffle=True,
-                                                     generator=torch.Generator(torch.get_default_device())), DataLoader(validation_data,
-                                                                                                    batch_size=cfg.batch_size,
-                                                                                                    shuffle=True,
-                                                                                                    generator=torch.Generator(
-                                                                                                        torch.get_default_device()))
+                                                     generator=torch.Generator(torch.get_default_device())), DataLoader(
+            validation_data,
+            batch_size=cfg.batch_size,
+            shuffle=True,
+            generator=torch.Generator(
+                torch.get_default_device()))
         fold_save_path = base_save_path + f'_fold_{num}'
         logger.info(f'Starting training of fold {num}')
         fold_results[f'fold_{num}'] = train(model=models[num], train_dataloader=train_loader,
