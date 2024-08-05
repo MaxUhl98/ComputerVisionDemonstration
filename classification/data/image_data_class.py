@@ -15,13 +15,17 @@ class ImageDataset(Dataset):
     labels: torch.Tensor
     image_processor: Transform
 
-    def __init__(self, data: pd.DataFrame, data_type: torch.dtype = torch.float32):
+    def __init__(self, data: pd.DataFrame, data_type: torch.dtype = torch.float32,
+                 augmentations: Union[Transform, None] = None):
         super(ImageDataset, self).__init__()
+        self.data = data
         self.data_paths = data.path.values
         self.targets = torch.from_numpy(data.target.values.astype(np.int64))
         self.image_processor = Compose(
             [ToPILImage(mode='RGB'), PILToTensor(), Resize((224, 224)), ToDtype(data_type, scale=True)])
         self.images = [self.image_processor(self.load_image(idx))[:3, :, :] for idx in range(len(self.targets))]
+        if isinstance(augmentations, Transform):
+            self.images = augmentations(self.images)
 
     def __len__(self) -> int:
         """Returns total number of samples"""
