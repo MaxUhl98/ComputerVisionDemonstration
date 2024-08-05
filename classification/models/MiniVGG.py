@@ -1,11 +1,9 @@
-import timm
 from torch import nn
-from typing import *
+import torch
 
 
 class MiniVGG(nn.Module):
-    """miniVGG with SiLU instead of ReLU
-    linear 1 and linear 2 are the shapes of the Linear layers in the last block of the MiniVGG"""
+    """MiniVGG implementation"""
 
     def __init__(self, input_channels: int, hidden_units: int = 128, num_classes: int = 28, dropout: float = .1,
                  linear_size: int = 64):
@@ -35,7 +33,12 @@ class MiniVGG(nn.Module):
             nn.Linear(in_features=linear1[0], out_features=linear1[1]), nn.ReLU(),
             nn.Dropout(dropout), nn.Linear(in_features=linear1[1], out_features=linear2[1]))
 
-    def forward(self, x):
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        """Calculates values for image x (pre softmax)
+
+        :param x: Input image tensor
+        :return: Predicted values pre softmax
+        """
         x = self.conv_block(x)
         x = self.conv_block2(x)
         x = self.conv_block3(x)
