@@ -24,13 +24,15 @@ on a real world eye disease dataset.
 
 ## Training Workflow
 
-<img alt="Error" src="demonstration_results/workflow/train_workflow.png"/>
+<img alt="Error" src="demonstration_results/workflow/train_workflow.png?"/>
 
 ## Demonstration Workflow
 
-<img alt="Error" src="demonstration_results/workflow/demo_workflow.png"/>
+<img alt="Error" src="demonstration_results/workflow/demo_workflow.png?"/>
 
 ## Eye Disease Example
+
+
 
 
 
