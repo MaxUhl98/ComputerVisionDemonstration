@@ -83,6 +83,7 @@ def load_pretrained_models(cfg: DemonstrationConfig) -> list[nn.Module]:
                       trained_model_weight_paths]  # Initialize Models
     [trained_models[num].load_state_dict(model_weights) for num, model_weights in
      enumerate(trained_model_weight_paths)]  # Load model weights
+    [model.eval() for model in trained_models]
     return trained_models
 
 
