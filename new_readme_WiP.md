@@ -9,10 +9,10 @@ on a real world eye disease dataset.
 
 | Model                                     | Pretrained         |
 |-------------------------------------------|--------------------|
-| [Efficientnet V2](#Efficientnet V2)       | :heavy_check_mark: |
-| [ConvNeXT V2](#ConvNeXT V2)               | :heavy_check_mark: |
-| [Vision Transformer](#Vision Transformer) | :heavy_check_mark: |
-| [Mini VGG](#Mini VGG)                     | :x:                |
+| [Efficientnet V2](#Efficientnet-V2)       | :heavy_check_mark: |
+| [ConvNeXT V2](#ConvNeXT-V2)               | :heavy_check_mark: |
+| [Vision Transformer](#Vision-Transformer) | :heavy_check_mark: |
+| [Mini VGG](#Mini-VGG)                     | :x:                |
 
 ## Index
 
@@ -57,9 +57,9 @@ under 'Normal'.<br>
 Explanation:<br>
 
 The Dataset Images were generated via a common eye disease diagnosing technique called Optical Coherence Tomographie (
-OTC) and labeled. The main advantage of this technique is that it is non invasive and thereby does not cause any
+OTC). The main advantage of this technique is that it is non invasive and thereby does not cause any
 discomfort in the patient. The goal of this example is to use the training data to train a model that generalizes well
-on the unseen test data we will use to measure the models performance.
+on the unseen test data.
 
 Example OTC Scan: <br>
 ![Error](classification/data/Eye_Disease_Detection/validation/validation/NORMAL/NORMAL-12494-33.jpeg)
@@ -151,15 +151,26 @@ Now I go into main.py and run the function main(), which trains the models and c
 What we see here is a 'Confusion Matrix' which has the true labels from the test data on the y-axis and the labels our
 model predicted on the x-axis. Since the correct entries are on the main diagonal we can directly see how well our model
 performed, which was ~96% validation accuracy like in our experiments, giving us confidence in moving on to bigger 
-models which take more time to train. In addition to this we can see which were the most common mistakes the model made 
-during prediction and use methods to reduce these errors. If this were a professional project I would take a look at 
-the 36 images that were CNVs falsely predicted as Drusen and try to find out why this is happening and how I can 
-prevent/lover the chance of this mistake occurring to further improve the model, but since I have no need to cut down 
-costs or minimize model size I circumvent the issue of 'just' 96% accuracy (remember that guessing here would be 25%) 
+models which take more time to train. In addition to this we can detect the most common mistakes the model made 
+during prediction and could try ot analyze these in order to reduce these errors. If this were a professional project I would take a look at 
+the 36 images that were CNVs falsely predicted as Drusen and try to find out why this is happening and how I can use this insight further improve the model, but since I have no need to cut down inference
+costs or some use-case specific requirements limiting my model size I will circumvent the issue of 'just' 96% accuracy (remember that guessing here would be 25%) 
 by transfer learning more powerful models.
 
 
 <img alt="Error" src="demonstration_results/MiniVGG/Model_Predictions.png"/>
+Here I visualized 16 example images with their respective predicted label/true label above (written in green if the model predicted correctly, else written in red).
+
+The next bigger Model we will train is called [ConvNeXt V2](#ConvNeXt-V2).
+
+We begin by adapting the model_name parameter in the config to the model we want to train.
+```
+model_name: str = 'ConvNeXT_V2'
+```
+
+
+
+
 
 
 
