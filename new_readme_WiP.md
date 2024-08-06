@@ -56,8 +56,7 @@ under 'Normal'.<br>
 
 Explanation:<br>
 
-The Dataset Images were generated via a common eye disease diagnosing technique called Optical Coherence Tomographie (
-OTC). The main advantage of this technique is that it is non invasive and thereby does not cause any
+The Dataset Images were generated via a common eye disease diagnosing technique called Optical Coherence Tomographie (OTC). The main advantage of this technique is that it is non invasive and thereby does not cause any
 discomfort in the patient. The goal of this example is to use the training data to train a model that generalizes well
 on the unseen test data.
 
