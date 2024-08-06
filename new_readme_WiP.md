@@ -191,8 +191,12 @@ While not as powerful as the other model options in the repository it is compara
 ConvNeXt V2 is a modernized Convolutional Neural Network which employs Covolutional Masked AUto-Encoding and Global Response Normalization to modernize the Convolutional Neural Net architecture. 
 
 ### EfficientNet V2
-EfficientNet V2 is an improved version of EfficienNet, which is a model familiy that improved Convolutional Neural Nets through efficient scaling.
+EfficientNet V2 is an improved version of EfficienNet, which is a model familiy that improved Convolutional Neural Nets through efficient scaling of depth width and resolution.
 
 ### Vision Transformer
+The Vision Transformer is the first widely successful attempt to adapt the transformer who is dominating in Natural Language Problems (NLP) to the Computer Vision task and has been one of the top Computer Vision Classification algorithms since.   
+
+## User Guide
+# TODO
 
 
