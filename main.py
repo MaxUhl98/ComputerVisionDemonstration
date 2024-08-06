@@ -1,5 +1,6 @@
 from demo_configuration import DemonstrationConfig
 from classification import demonstrate, train_model
+from utils import set_default_device
 
 
 def train_and_demonstrate() -> None:
@@ -8,6 +9,7 @@ def train_and_demonstrate() -> None:
     :return: None (writes training information to the used model logfile, saves models in the model folder.
     Also visualizes results in a confusion matrix and via showing labeled samples)
     """
+    set_default_device()
     cfg = DemonstrationConfig()
     train_model(cfg)
     demonstrate(cfg)
@@ -18,7 +20,15 @@ def run_demonstration() -> None:
 
     :return: None (Visualizes results in a confusion matrix and via showing labeled samples)
     """
+    set_default_device()
     cfg = DemonstrationConfig()
+    demonstrate(cfg)
+
+
+def main() -> None:
+    set_default_device()
+    cfg = DemonstrationConfig()
+    train_model(cfg)
     demonstrate(cfg)
 
 

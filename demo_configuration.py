@@ -2,6 +2,7 @@ from typing import *
 from torchvision.transforms import v2
 import os
 from utils import get_label_mapping_dictionary
+from torch.optim.lr_scheduler import *
 
 
 class DemonstrationConfig:
@@ -31,18 +32,19 @@ class DemonstrationConfig:
     :param model_input_size: The input size of the model in (channels, height, width) format.
     :param class_mappings: A dictionary mapping class names to integer labels.
     """
-    model_name: str = 'MiniVGG'
+    # Choose one out of ['EfficientNetV2', 'ViT', 'MiniVGG', 'ConvNeXt_V2']
+    model_name: str = 'EfficientNetV2'
 
     # Cross Validation settings
     num_folds: int = 10
     shuffle_folds: bool = True
 
     # Train Settings
-    batch_size: int = 32
+    batch_size: int = 32  # recommended to be a power of 2, e.g. one of 2, 4, 8, 16, 32, ...
     num_epochs: int = 100
     patience: int = 5
-    learning_rate: float = 10 ** -4
-    max_grad_norm: Union[int, float] = 10 ** 5
+    learning_rate: float = 10 ** -5
+    max_grad_norm: Union[int, float] = 10 ** 5  # Clips large gradients to this value
     apex: bool = False
 
     # Data paths
@@ -62,6 +64,7 @@ class DemonstrationConfig:
 
     # LR Scheduling
     lr_scheduling: bool = True
+    lr_schedule_class: CosineAnnealingWarmRestarts  # todo make lr scheduling algorithm configurable
     t_0: int = 3
 
     # Logging settings
