@@ -21,4 +21,4 @@ This readme serves as a guide to explain how to use this framework, explain its 
 
 ## Training Workflow
 
-![Error](demonstration_results/workflow/training_workflow.png)
+![Error](demonstration_results/workflow/PAP_CV_Demo_Training.png)
