@@ -25,4 +25,4 @@ This readme serves as a guide to explain how to use this framework, explain its 
 
 ## Demonstration Workflow
 
-![Error](demonstration_results/workflow/train_workflow.png)
+![Error](demonstration_results/workflow/demo_workflow.png)
