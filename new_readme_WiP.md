@@ -1,7 +1,6 @@
 # Computer Vision Pipeline
 
-Since I heard the [Podcast](https://www.youtube.com/watch?v=RF4LwRl0npQ&t=747s) with Christof Henkel (the guy who was
-the #1 competetive kaggler at that time) it became clear to me I want to develop my own robust and highly configurable ComputerVision model training
+Since I heard the [Podcast](https://www.youtube.com/watch?v=RF4LwRl0npQ&t=747s) with [Christof Henkel](https://www.kaggle.com/christofhenkel  it became clear to me I want to develop my own robust and highly configurable ComputerVision model training
 framework to automate most of the repetetive steps of model training and thus remove the need to create redundant and
 poorly documented/tracked experiments.
 This readme serves as a guide to explain how to use this framework, explain its inner workings and showcase its results
