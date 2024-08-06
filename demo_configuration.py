@@ -56,7 +56,7 @@ class DemonstrationConfig:
     # Data Settings
     use_reduced_dataset: bool = False
     reduced_percentage: float = .1
-    augmentations = v2.Compose([v2.AutoAugment()])
+    augmentations:v2.Transform = v2.Compose([v2.AutoAugment()])
 
     # Weight saving settings
     save_best: bool = True
@@ -64,7 +64,7 @@ class DemonstrationConfig:
 
     # LR Scheduling
     lr_scheduling: bool = True
-    lr_schedule_class: CosineAnnealingWarmRestarts  # todo make lr scheduling algorithm configurable
+    lr_schedule_class:Callable =  CosineAnnealingWarmRestarts  # todo make lr scheduling algorithm configurable
     t_0: int = 3
 
     # Logging settings
