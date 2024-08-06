@@ -21,4 +21,4 @@ This readme serves as a guide to explain how to use this framework, explain its 
 
 ## Training Workflow
 
-![Error](demonstration_results/workflow/training_workflow.drawio.pdf)
+![Error](demonstration_results/workflow/training_workflow.drawio.png)
