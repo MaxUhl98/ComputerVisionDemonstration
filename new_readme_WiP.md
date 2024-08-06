@@ -12,11 +12,11 @@ This readme serves as a guide to explain how to use this framework, explain its 
 |[Mini VGG](###Mini VGG)                    |:x:                          |
 
 ## Index
-[Training Workflow](##Training Workflow)<br>
-[Demonstration Workflow](##Demonstration Workflow)<br>
-[User Guide](##User Guide)<br>
-[Eye Disease Example](##Eye Disease Example)<br>
-[Models](##Models)<br>
+[Training Workflow](#Training Workflow)<br>
+[Demonstration Workflow](#Demonstration Workflow)<br>
+[User Guide](#User Guide)<br>
+[Eye Disease Example](#Eye Disease Example)<br>
+[Models](#Models)<br>
 
 
 ## Training Workflow
