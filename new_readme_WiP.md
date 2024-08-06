@@ -20,4 +20,4 @@ This readme serves as a guide to explain how to use this framework, explain its 
 
 
 ## Training Workflow
-![Error while Loading Train Workflow Image](demonstration_results/workflow/PAP_CV_Demo_Training.html)
+![Error while Loading Train Workflow Image](demonstration_results/workflow/PAP_CV_Demo_Training.png)
