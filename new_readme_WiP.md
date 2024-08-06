@@ -1,9 +1,9 @@
 # Computer Vision Pipeline
 
 Since I heard the [Podcast](https://www.youtube.com/watch?v=RF4LwRl0npQ&t=747s) with Christof Henkel (the guy who was
-the #1 competetive kaggler at that time) it became clear to me I want to develop my own ComputerVision model trianing
+the #1 competetive kaggler at that time) it became clear to me I want to develop my own robust and highly configurable ComputerVision model training
 framework to automate most of the repetetive steps of model training and thus remove the need to create redundant and
-poorly documented/tracked experiments in notebooks.
+poorly documented/tracked experiments.
 This readme serves as a guide to explain how to use this framework, explain its inner workings and showcase its results
 on a real world eye disease dataset.
 
@@ -167,12 +167,32 @@ We begin by adapting the model_name parameter in the config to the model we want
 ```
 model_name: str = 'ConvNeXT_V2'
 ```
+Next we just run main with the same settings and let the package do its magic.
+
+# Todo add results
 
 
+Next we take a look at what Efficientnet V2 can do:
+# Todo add efficienent results
 
+Last but not least we give the Vision transformer a shot
+# Todo add ViT results
 
+## Step 4 Conclusion and further steps
+# Todo write conclusion and give advice on basic troubleshooting/further improving models
 
+## Models
 
+### Mini VGG
+Mini VGG is a downscaled version of [VGG](https://arxiv.org/abs/1409.1556), which is a well known Convelutional Neural Net.
+While not as powerful as the other model options in the repository it is comparatively light-weight (~750.000) parameters, which makes it great for fast experimenting or usage on devices that lack a GPU.
 
+### ConvNeXt V2
+ConvNeXt V2 is a modernized Convolutional Neural Network which employs Covolutional Masked AUto-Encoding and Global Response Normalization to modernize the Convolutional Neural Net architecture. 
+
+### EfficientNet V2
+EfficientNet V2 is an improved version of EfficienNet, which is a model familiy that improved Convolutional Neural Nets through efficient scaling.
+
+### Vision Transformer
 
 
