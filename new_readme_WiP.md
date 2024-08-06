@@ -40,8 +40,8 @@ joyful eyes of a loved one start to fade away, not due to the passage of time bu
 a lurking ocular disease. The reality is that millions across the globe face this daunting
 experience daily, with conditions like CNV, DME, and Drusen leading the charge. But here's
 where you, armed with the prowess of machine learning and a meticulously curated dataset,
-can make an indelible mark and shine a beacon of hope in this looming darkness.<br>
-Understanding the Adversaries:<br>
+can make an indelible mark and shine a beacon of hope in this looming darkness. <br>
+Understanding the Adversaries: <br>
 ● CNV (Choroidal Neovascularization): An eye condition where abnormal blood
 vessels grow underneath the retina. These vessels can leak blood and fluid, leading
 to a bulge or bump in the macula.<br>
