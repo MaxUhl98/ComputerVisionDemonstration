@@ -32,7 +32,35 @@ on a real world eye disease dataset.
 
 ## Eye Disease Example
 
+Dataset: [Eye Disease Detection Dataset](https://www.kaggle.com/datasets/ysnreddy/eye-disease-detection-dataset) <br>
+Original Description by [Surya](https://www.kaggle.com/ysnreddy):<br>
 
+Imagine, for a moment, a world where the beauty of a sunset, the colors of a rainbow, or the
+joyful eyes of a loved one start to fade away, not due to the passage of time but because of
+a lurking ocular disease. The reality is that millions across the globe face this daunting
+experience daily, with conditions like CNV, DME, and Drusen leading the charge. But here's
+where you, armed with the prowess of machine learning and a meticulously curated dataset,
+can make an indelible mark and shine a beacon of hope in this looming darkness.
+Understanding the Adversaries:
+● CNV (Choroidal Neovascularization): An eye condition where abnormal blood
+vessels grow underneath the retina. These vessels can leak blood and fluid, leading
+to a bulge or bump in the macula.
+● DME (Diabetic Macular Edema): A consequence of diabetes, this condition is
+characterized by fluid accumulation in the macula due to leaking blood vessels.
+Without treatment, DME can lead to blindness.
+● Drusen: Tiny yellow or white deposits under the retina. They're common as we age,
+but a large number in one place or their rapid increase can indicate a problem, such
+as age-related macular degeneration (AMD).
+And then, of course, we have the eyes that are untouched by these conditions, categorized
+under 'Normal'.
+
+
+Example Image: <br>
+![Error](classification/data/Eye_Disease_Detection/validation/validation/NORMAL/NORMAL-12494-33.jpeg)
+
+Explanation:<br>
+
+The Dataset Images were generated via a common eye disease diagnosing technique called Optical Coherence Tomographie (OTC). The main advantage of this technique is that it is non invasive and thereby does not cause any discomfort in the patient. The goal of this example is to use the training data to train a model that generalizes well on the unseen test data we will use to measure the models performance. 
 
 
 
