@@ -148,7 +148,15 @@ Now I go into main.py and run the function main(), which trains the models and c
 ## Step 3: Analyzing the results
 
 <img alt="Error" src="demonstration_results/MiniVGG/confusion_matrix.png"/>
-What we see her eis a so called 'Confusion Matrix'
+What we see here is a 'Confusion Matrix' which has the true labels from the test data on the y-axis and the labels our
+model predicted on the x-axis. Since the correct entries are on the main diagonal we can directly see how well our model
+performed, which was ~96% validation accuracy like in our experiments, giving us confidence in moving on to bigger 
+models which take more time to train. In addition to this we can see which were the most common mistakes the model made 
+during prediction and use methods to reduce these errors. If this were a professional project I would take a look at 
+the 36 images that were CNVs falsely predicted as Drusen and try to find out why this is happening and how I can 
+prevent/lover the chance of this mistake occurring to further improve the model, but since I have no need to cut down 
+costs or minimize model size I circumvent the issue of 'just' 96% accuracy (remember that guessing here would be 25%) 
+by transfer learning more powerful models.
 
 
 <img alt="Error" src="demonstration_results/MiniVGG/Model_Predictions.png"/>
