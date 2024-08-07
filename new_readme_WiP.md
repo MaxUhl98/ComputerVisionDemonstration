@@ -167,7 +167,8 @@ model_name: str = 'ConvNeXT_V2'
 ```
 Next we just run main and wait for the results.
 
-The best accuracy scores for our cross validation folds are:<br>
+The best accuracy scores for our cross validation folds are:
+```
 Fold 0: 0.977
 Fold 1: 0.9815
 Fold 2: 0.979
@@ -179,6 +180,7 @@ Fold 7: 0.977
 Fold 8: 0.9855
 Fold 9: 0.984
 Average: 0.981
+```
 
 
 We get the following confusion matrix for the test dataset, which is unknown to the model: 
@@ -187,7 +189,7 @@ Since the Confusion matrix looks very similar to the MiniVGG Confusion matrix we
 some patterns present in the test data, which are not found in the train data. Also, we note that our cross validation 
 slightly overestimated our models performance<br> 
 
-Let's check out the EfficientNet confusion matrix:<br>
+Let's check out the EfficientNet V2 confusion matrix:<br>
 <img alt="Error" src="demonstration_results/EfficientNetV2/efficientnet_confusion_matrix.png"/>
 
 
@@ -206,7 +208,7 @@ not contain or perhaps mislabeled data in the test set.
 We started by testing different configurations on a downsized train dataset and moved on to training models on the full 
 dataset once we got satisfying results. Next we trained our 4 different models and got similar results, which suggests 
 that there might be some patterns present in the test set we did not have in the training data. In a real world scenario
-I suggest that you implement some explainability algorithm like [Grads Cam](https://arxiv.org/abs/1610.02391) to check 
+I suggest that you implement some explainability algorithm like [Grad Cam](https://arxiv.org/abs/1610.02391) to check 
 if your model looks where it should look in order to classify the illnesses correctly.
 
 
@@ -214,19 +216,23 @@ if your model looks where it should look in order to classify the illnesses corr
 
 ### Mini VGG
 <img alt="Error" src="readme_images/MyMiniVGG_xml.png"/>
+
 Mini VGG is a downscaled version of [VGG](https://arxiv.org/abs/1409.1556) , which is a well known Convolutional Neural Net.
 While not as powerful as the other model options in the repository it is comparatively light-weight (~750.000) parameters, which makes it great for fast experimenting or usage on devices that lack a GPU.
 
 ### ConvNeXt V2
 <img alt="Error" src="readme_images/ConvNeXt_v2_diagram.jpg"/>
+
 [ConvNeXt V2](https://arxiv.org/abs/2301.00808) is a modernized Convolutional Neural Network which employs Convolutional Masked Auto-Encoding and Global Response Normalization to modernize the Convolutional Neural Net architecture. 
 
 ### EfficientNet V2
 <img alt="Error" src="readme_images/Efficientnet_V2_Diagram.png"/>
+
 [EfficientNet V2](https://arxiv.org/abs/2104.00298) is an improved version of EfficientNet, which is a model family that improved Convolutional Neural Nets through efficient scaling of depth width and resolution.
 
 ### Vision Transformer
 <img alt="Error" src="readme_images/ViT_Diagram.png"/>
+
 The [Vision Transformer](https://arxiv.org/abs/2010.11929) is the first widely successful attempt to adapt the transformer who is dominating in Natural Language Problems (NLP) to the Computer Vision task and has been one of the top Computer Vision Classification algorithms since.   
 
 
