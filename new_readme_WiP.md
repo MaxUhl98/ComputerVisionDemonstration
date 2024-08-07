@@ -214,19 +214,19 @@ if your model looks where it should look in order to classify the illnesses corr
 
 ### Mini VGG
 <img alt="Error" src="readme_images/MyMiniVGG_xml.png"/>
-Mini VGG is a downscaled version of [VGG](https://arxiv.org/abs/1409.1556), which is a well known Convolutional Neural Net.
+Mini VGG is a downscaled version of [VGG](https://arxiv.org/abs/1409.1556) , which is a well known Convolutional Neural Net.
 While not as powerful as the other model options in the repository it is comparatively light-weight (~750.000) parameters, which makes it great for fast experimenting or usage on devices that lack a GPU.
 
 ### ConvNeXt V2
 <img alt="Error" src="readme_images/ConvNeXt_v2_diagram.jpg"/>
-ConvNeXt V2 is a modernized Convolutional Neural Network which employs Convolutional Masked Auto-Encoding and Global Response Normalization to modernize the Convolutional Neural Net architecture. 
+[ConvNeXt V2](https://arxiv.org/abs/2301.00808) is a modernized Convolutional Neural Network which employs Convolutional Masked Auto-Encoding and Global Response Normalization to modernize the Convolutional Neural Net architecture. 
 
 ### EfficientNet V2
 <img alt="Error" src="readme_images/Efficientnet_V2_Diagram.png"/>
-EfficientNet V2 is an improved version of EfficientNet, which is a model family that improved Convolutional Neural Nets through efficient scaling of depth width and resolution.
+[EfficientNet V2](https://arxiv.org/abs/2104.00298) is an improved version of EfficientNet, which is a model family that improved Convolutional Neural Nets through efficient scaling of depth width and resolution.
 
 ### Vision Transformer
 <img alt="Error" src="readme_images/ViT_Diagram.png"/>
-The Vision Transformer is the first widely successful attempt to adapt the transformer who is dominating in Natural Language Problems (NLP) to the Computer Vision task and has been one of the top Computer Vision Classification algorithms since.   
+The [Vision Transformer](https://arxiv.org/abs/2010.11929) is the first widely successful attempt to adapt the transformer who is dominating in Natural Language Problems (NLP) to the Computer Vision task and has been one of the top Computer Vision Classification algorithms since.   
 
 
