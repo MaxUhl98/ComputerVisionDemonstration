@@ -1,4 +1,4 @@
-# Computer Vision Pipeline
+_# Computer Vision Pipeline
 
 Since I heard the [Podcast](https://www.youtube.com/watch?v=RF4LwRl0npQ&t=747s) with [Christof Henkel](https://www.kaggle.com/christofhenkel)  it became clear to me, that I want to develop my own robust and highly configurable ComputerVision model training
 framework to automate most of the repetitive steps of model training and thus remove the need to create redundant and
@@ -226,13 +226,13 @@ While not as powerful as the other model options in the repository it is compara
 [ConvNeXt V2](https://arxiv.org/abs/2301.00808) is a modernized Convolutional Neural Network which employs Convolutional Masked Auto-Encoding and Global Response Normalization to modernize the Convolutional Neural Net architecture. 
 
 ### EfficientNet V2
-<img alt="Error" src="readme_images/Efficientnet_V2_Diagram.png"/>
+<img alt="Error" src="readme_images/Efficientnet_V2_Diagram.png?"/>
 
 [EfficientNet V2](https://arxiv.org/abs/2104.00298) is an improved version of EfficientNet, which is a model family that improved Convolutional Neural Nets through efficient scaling of depth width and resolution.
 
 ### Vision Transformer
 <img alt="Error" src="readme_images/ViT_Diagram.png"/>
 
-The [Vision Transformer](https://arxiv.org/abs/2010.11929) is the first widely successful attempt to adapt the transformer who is dominating in Natural Language Problems (NLP) to the Computer Vision task and has been one of the top Computer Vision Classification algorithms since.   
+The [Vision Transformer](https://arxiv.org/abs/2010.11929) is the first widely successful attempt to adapt the transformer who is dominating in Natural Language Problems (NLP) to the Computer Vision task and has been one of the top Computer Vision Classification algorithms since._   
 
 
