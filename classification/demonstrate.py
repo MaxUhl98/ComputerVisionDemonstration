@@ -44,6 +44,7 @@ def plot_labelled_images(images: list[torch.Tensor], prediction_labels: list[str
             c = 'g' if prediction_labels[num_cols * i + j] == true_labels[num_cols * i + j] else 'r'
             ax[i, j].set_title(prediction_labels[num_cols * i + j] + " / " + true_labels[num_cols * i + j], color=c)
             ax[i, j].axis(show_axis)
+    fig.suptitle('Sample Images with Predicted Label / True Label', fontsize=24)
     plt.show()
 
 
@@ -75,14 +76,13 @@ def load_pretrained_models(cfg: DemonstrationConfig) -> list[nn.Module]:
         'convnext_v2': (CustomizedConvNeXT_V2, cfg.get_convnextv2_kwargs, 'ConvNeXt_V2')
     }
     model_class, model_kwarg_getter, dir_name = model_mapping[cfg.model_name.lower()]
-    trained_model_weight_paths = [
-        torch.load(cfg.model_save_path.split('.')[0] + f'_fold_{num}.pth', map_location=torch.get_default_device()) for
-        num in
-        range(cfg.num_folds)]
-    trained_models = [model_class(model_kwarg_getter(), num_classes=len(cfg.class_mappings)) for model_weights in
-                      trained_model_weight_paths]  # Initialize Models
+    trained_model_weights = [
+        torch.load(cfg.model_save_path.split('.')[0] + f'_fold_{num}.pth', map_location=torch.get_default_device(),
+                   weights_only=True) for num in range(cfg.num_folds)]
+    trained_models = [model_class(model_kwarg_getter(), num_classes=len(cfg.class_mappings)) for _ in
+                      trained_model_weights]  # Initialize Models
     [trained_models[num].load_state_dict(model_weights) for num, model_weights in
-     enumerate(trained_model_weight_paths)]  # Load model weights
+     enumerate(trained_model_weights)]  # Load model weights
     [model.eval() for model in trained_models]
     return trained_models
 
