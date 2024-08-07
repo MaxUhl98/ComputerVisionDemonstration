@@ -1,7 +1,7 @@
 # Computer Vision Pipeline
 
-Since I heard the [Podcast](https://www.youtube.com/watch?v=RF4LwRl0npQ&t=747s) with [Christof Henkel](https://www.kaggle.com/christofhenkel  it became clear to me I want to develop my own robust and highly configurable ComputerVision model training
-framework to automate most of the repetetive steps of model training and thus remove the need to create redundant and
+Since I heard the [Podcast](https://www.youtube.com/watch?v=RF4LwRl0npQ&t=747s) with [Christof Henkel](https://www.kaggle.com/christofhenkel)  it became clear to me, that I want to develop my own robust and highly configurable ComputerVision model training
+framework to automate most of the repetitive steps of model training and thus remove the need to create redundant and
 poorly documented/tracked experiments.
 This readme serves as a guide to explain how to use this framework, explain its inner workings and showcase its results
 on a real world eye disease dataset.
@@ -23,11 +23,11 @@ on a real world eye disease dataset.
 
 ## Training Workflow
 
-<img alt="Error" src="demonstration_results/workflow/train_workflow.png?"/>
+<img alt="Error" src="readme_images/workflow/train_workflow.png?"/>
 
 ## Demonstration Workflow
 
-<img alt="Error" src="demonstration_results/workflow/demo_workflow.png?"/>
+<img alt="Error" src="readme_images/workflow/demo_workflow.png?"/>
 
 ## Eye Disease Example
 
@@ -128,8 +128,8 @@ lr_scheduling: bool = True
 lr_schedule_class: CosineAnnealingWarmRestarts
 ```
 
-Since I know from my kaggle experience, that the larger, pretrained models tend to outperform the MiniVGG model by 2-5% accuracy score this is
-definitely good enough to likely get to an almost perfect accuracy. Additionally there will be the opportunity to ensemble the
+Since I know from my kaggle experience, that the larger, pretrained models tend to outperform the MiniVGG model this is
+definitely good enough to likely get to an almost perfect accuracy. In addition to this there will be the opportunity to ensemble the
 larger models for even better scores if need be. 
 This lead to the decision to stop experimenting and moving on to training models with the full dataset.
 
@@ -151,7 +151,7 @@ model predicted on the x-axis. Since the correct entries are on the main diagona
 performed, which was ~96% validation accuracy like in our experiments, giving us confidence in moving on to bigger 
 models which take more time to train. In addition to this we can detect the most common mistakes the model made 
 during prediction and could try ot analyze these in order to reduce these errors. If this were a professional project I would take a look at 
-the 36 images that were CNVs falsely predicted as Drusen and try to find out why this is happening and how I can use this insight further improve the model, but since I have no need to cut down inference
+the 36 images that were CNVs falsely predicted as drusen and try to find out why this is happening and how I can use this insight further improve the model, but since I have no need to cut down inference
 costs or some use-case specific requirements limiting my model size I will circumvent the issue of 'just' 96% accuracy (remember that guessing here would be 25%) 
 by transfer learning more powerful models.
 
@@ -165,36 +165,68 @@ We begin by adapting the model_name parameter in the config to the model we want
 ```
 model_name: str = 'ConvNeXT_V2'
 ```
-Next we just run main with the same settings and let the package do its magic.
+Next we just run main and wait for the results.
 
-# Todo add results
+The best accuracy scores for our cross validation folds are:<br>
+Fold 0: 0.977
+Fold 1: 0.9815
+Fold 2: 0.979
+Fold 3: 0.983
+Fold 4: 0.97
+Fold 5: 0.987
+Fold 6: 0.986
+Fold 7: 0.977
+Fold 8: 0.9855
+Fold 9: 0.984
+Average: 0.981
 
 
-Next we take a look at what Efficientnet V2 can do:
-# Todo add efficienent results
+We get the following confusion matrix for the test dataset, which is unknown to the model: 
+<img alt="Error" src="demonstration_results/ConvNeXt_V2/confusion_matrix_convnext.png"/>
+Since the Confusion matrix looks very similar to the MiniVGG Confusion matrix we start suspecting, that there might be 
+some patterns present in the test data, which are not found in the train data. Also, we note that our cross validation 
+slightly overestimated our models performance<br> 
 
-Last but not least we give the Vision transformer a shot
-# Todo add ViT results
+Let's check out the EfficientNet confusion matrix:<br>
+<img alt="Error" src="demonstration_results/EfficientNetV2/efficientnet_confusion_matrix.png"/>
+
+
+Last but not least we train the Vision Transformer which yields the following result:<br>
+
+<img alt="Error" src="demonstration_results/EfficientNetV2/efficientnet_confusion_matrix.png"/>
+For the vision transformer I noted, that there were ~5% accuracy jumps between epochs, which suggests that the learning 
+rate is too high, so I adjusted it as following:
+```learning_rate: float = 5 * 10 ** -6```
+
+Since the 4 confusion matrices look very much alike I suspect that there is some kind of pattern our training data does 
+not contain or perhaps mislabeled data in the test set. 
 
 ## Step 4 Conclusion and further steps
-# Todo write conclusion and give advice on basic troubleshooting/further improving models
+
+We started by testing different configurations on a downsized train dataset and moved on to training models on the full 
+dataset once we got satisfying results. Next we trained our 4 different models and got similar results, which suggests 
+that there might be some patterns present in the test set we did not have in the training data. In a real world scenario
+I suggest that you implement some explainability algorithm like [Grads Cam](https://arxiv.org/abs/1610.02391) to check 
+if your model looks where it should look in order to classify the illnesses correctly.
+
 
 ## Models
 
 ### Mini VGG
-Mini VGG is a downscaled version of [VGG](https://arxiv.org/abs/1409.1556), which is a well known Convelutional Neural Net.
+<img alt="Error" src="readme_images/MyMiniVGG_xml.png"/>
+Mini VGG is a downscaled version of [VGG](https://arxiv.org/abs/1409.1556), which is a well known Convolutional Neural Net.
 While not as powerful as the other model options in the repository it is comparatively light-weight (~750.000) parameters, which makes it great for fast experimenting or usage on devices that lack a GPU.
 
 ### ConvNeXt V2
-ConvNeXt V2 is a modernized Convolutional Neural Network which employs Covolutional Masked AUto-Encoding and Global Response Normalization to modernize the Convolutional Neural Net architecture. 
+<img alt="Error" src="readme_images/ConvNeXt_v2_diagram.jpg"/>
+ConvNeXt V2 is a modernized Convolutional Neural Network which employs Convolutional Masked Auto-Encoding and Global Response Normalization to modernize the Convolutional Neural Net architecture. 
 
 ### EfficientNet V2
-EfficientNet V2 is an improved version of EfficienNet, which is a model familiy that improved Convolutional Neural Nets through efficient scaling of depth width and resolution.
+<img alt="Error" src="readme_images/Efficientnet_V2_Diagram.png"/>
+EfficientNet V2 is an improved version of EfficientNet, which is a model family that improved Convolutional Neural Nets through efficient scaling of depth width and resolution.
 
 ### Vision Transformer
+<img alt="Error" src="readme_images/ViT_Diagram.png"/>
 The Vision Transformer is the first widely successful attempt to adapt the transformer who is dominating in Natural Language Problems (NLP) to the Computer Vision task and has been one of the top Computer Vision Classification algorithms since.   
-
-## User Guide
-# TODO
 
 
