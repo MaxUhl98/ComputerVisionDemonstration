@@ -18,7 +18,7 @@ def train_and_demonstrate() -> None:
 def run_demonstration() -> None:
     """Runs the demonstration with the existing configured models.
 
-    :return: None (Visualizes results in a confusion matrix and via showing labeled samples)
+    :return: None (Visualizes results in a confusion matrix and shows labeled samples)
     """
     set_default_device()
     cfg = DemonstrationConfig()
@@ -26,6 +26,10 @@ def run_demonstration() -> None:
 
 
 def main() -> None:
+    """Trains a model and visualizes the results afterward
+
+    :return: None (visualizes results in a confusion matrix and shows labeled samples)
+    """
     set_default_device()
     cfg = DemonstrationConfig()
     train_model(cfg)
@@ -33,4 +37,4 @@ def main() -> None:
 
 
 if __name__ == '__main__':
-    run_demonstration()
+    main()
