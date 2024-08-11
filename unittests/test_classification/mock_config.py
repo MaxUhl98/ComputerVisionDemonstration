@@ -27,6 +27,8 @@ class MockConfig:
     log_batch_loss: bool = False
     apex: bool = False
     lr_scheduling: bool = False
+    use_reduced_dataset = False
+    augmentations = []
 
     log_dir = 'unittests/test_files/fake_logs'
 

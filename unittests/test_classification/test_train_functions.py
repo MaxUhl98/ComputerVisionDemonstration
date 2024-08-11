@@ -1,8 +1,9 @@
 import torch.nn
-import classification.train_functions as t
+from classification.train_functions import *
 from unittests.test_classification.mock_model import MockModel
 from unittests.test_classification.mock_config import MockConfig
 from classification.data.image_data_class import ImageDataset
+from classification.train_functions import _test_step
 from pathlib import Path
 import pandas as pd
 from torch.utils.data import DataLoader
@@ -32,7 +33,7 @@ class TestTrainFunctions:
 
     @staticmethod
     def test_average_meter():
-        meter = t.AverageMeter()
+        meter = AverageMeter()
         meter.update(10)
         assert meter.val == 10
         assert meter.count == 1
@@ -51,7 +52,7 @@ class TestTrainFunctions:
 
     def test_train_step(self):
         self.set_up()
-        loss, acc = t.train_step(self.model, self.loader, self.loss_fn, self.optimizer, self.device,
+        loss, acc = train_step(self.model, self.loader, self.loss_fn, self.optimizer, self.device,
                                  lr_scheduling=False,
                                  logger=self.logger, cfg=self.cfg)
         assert loss == .5
@@ -59,13 +60,13 @@ class TestTrainFunctions:
 
     def test_test_step(self):
         self.set_up()
-        loss, acc = t.test_step(self.model, self.loader, self.loss_fn, self.device)
+        loss, acc = _test_step(self.model, self.loader, self.loss_fn, self.device)
         assert loss == .5
         assert acc == .5
 
     def test_train(self):
         self.set_up()
-        results = t.train(self.model, self.loader, self.loader, loss_fn=self.loss_fn,optimizer= self.optimizer, device=self.device,
+        results = train(self.model, self.loader, self.loader, loss_fn=self.loss_fn,optimizer= self.optimizer, device=self.device,
                           lr_scheduling=False,
                           logger=self.logger, cfg=self.cfg, epochs=1, save_best=False)
         assert results["train_loss"][0] == .5
@@ -75,7 +76,7 @@ class TestTrainFunctions:
 
     def test_kfold_train(self):
         self.set_up()
-        results = t.k_fold_train([self.model for _ in range(self.cfg.num_folds)], paths_to_data=self.cfg.train_data_paths,
+        results = k_fold_train([self.model for _ in range(self.cfg.num_folds)], paths_to_data=self.cfg.train_data_paths,
                                  optimizers=[self.optimizer for _ in range(self.cfg.num_folds)],loss_fn=self.loss_fn,
                                  device=self.device,logger=self.logger,cfg=self.cfg)
         fold_0_results = results['fold_0']
