@@ -114,7 +114,7 @@ discomfort in the patient. The goal of this example is to use the training data 
 on the unseen test data.
 
 Example OTC Scan: <br>
-![Error](readme_images/NORMAL-1384-1.jpeg)
+![Error](classification/data/Eye_Disease_Detection/validation/validation/NORMAL/NORMAL-12494-33.jpeg)
 
 <h3><center>Step 0: Setup</center></h3>
 
