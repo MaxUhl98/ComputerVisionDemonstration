@@ -26,23 +26,24 @@ class DemonstrationConfig:
     :param save_best: Whether to save the best model based on validation performance.
     :param model_save_path: The path where the model will be saved.
     :param lr_scheduling: Whether to use learning rate scheduling.
-    :param t_0: The number of epochs before the first restart in learning rate scheduling.
+    :param lr_schedule_class: The learning rate scheduling class to be used.
+    :param lr_kwargs: The keyword arguments for learning rate scheduling.
     :param log_dir: Directory where training logs will be saved.
     :param log_batch_loss: Whether to log the loss for each batch.
     :param model_input_size: The input size of the model in (channels, height, width) format.
     :param class_mappings: A dictionary mapping class names to integer labels.
     """
     # Choose one out of ['EfficientNetV2', 'ViT', 'MiniVGG', 'ConvNeXt_V2']
-    model_name: str = 'EfficientNetV2'
+    model_name: str = 'ViT'
 
     # Cross Validation settings
     num_folds: int = 10
     shuffle_folds: bool = True
 
     # Train Settings
-    batch_size: int = 32  # recommended to be a power of 2, e.g. one of 2, 4, 8, 16, 32, ...
+    batch_size: int = 8  # recommended to be a power of 2, e.g. one of 2, 4, 8, 16, 32, ...
     num_epochs: int = 100
-    patience: int = 5
+    patience: int = 10
     learning_rate: float = 10 ** -5
     max_grad_norm: Union[int, float] = 10 ** 5  # Clips large gradients to this value
     apex: bool = False
@@ -56,7 +57,7 @@ class DemonstrationConfig:
     # Data Settings
     use_reduced_dataset: bool = False
     reduced_percentage: float = .1
-    augmentations:v2.Transform = v2.Compose([v2.AutoAugment()])
+    augmentations: v2.Transform = v2.Compose([v2.AutoAugment()])
 
     # Weight saving settings
     save_best: bool = True
@@ -64,8 +65,8 @@ class DemonstrationConfig:
 
     # LR Scheduling
     lr_scheduling: bool = True
-    lr_schedule_class:Callable =  CosineAnnealingWarmRestarts  # todo make lr scheduling algorithm configurable
-    t_0: int = 3
+    lr_schedule_class: Callable = CosineAnnealingWarmRestarts
+    lr_kwargs: Dict[str, Any] = {'t_0':3,'eta_min':10**-8}
 
     # Logging settings
     log_dir: Union[str, os.PathLike] = 'classification/models/training_logs'
@@ -96,7 +97,7 @@ class DemonstrationConfig:
         :return: A dictionary of keyword arguments for the ViT model.
         """
         return {
-            'model_name': "vit_tiny_patch16_224.augreg_in21k_ft_in1k",
+            'model_name': "vit_base_patch32_clip_224",
             'pretrained': True}
 
     @staticmethod

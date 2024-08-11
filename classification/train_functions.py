@@ -296,6 +296,7 @@ def k_fold_train(models: List[torch.nn.Module], paths_to_data: List[Union[os.Pat
                                             save_path=fold_save_path,
                                             save_best=cfg.save_best, logger=logger,
                                             log_batch_loss=cfg.log_batch_loss, cfg=cfg)
+        models[num].to('cpu')
         best_val_acc = max(fold_results[f"fold_{num}"]["val_acc"])
         fold_results[f'fold_{num}']['best_accuracy'] = best_val_acc
         logger.info(f'Fold {num} Best Accuracy: {best_val_acc:.5f}')
