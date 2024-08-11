@@ -66,7 +66,7 @@ class DemonstrationConfig:
     # LR Scheduling
     lr_scheduling: bool = True
     lr_schedule_class: Callable = CosineAnnealingWarmRestarts
-    lr_kwargs: Dict[str, Any] = {'t_0':3,'eta_min':10**-8}
+    lr_kwargs: Dict[str, Any] = {'t_0': 3, 'eta_min': 10 ** -8}
 
     # Logging settings
     log_dir: Union[str, os.PathLike] = 'classification/models/training_logs'
