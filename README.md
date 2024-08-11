@@ -179,7 +179,7 @@ This lead to the decision to stop experimenting and moving on to training models
 <h3><center>Step 2: Training with the full Dataset</center></h3>
 
 
-Now is the time to train the models on the full data, here I started with the MiniVGG model, to see if our experiments 
+Now is the time to train the models on the full data, here I started with the MiniVGG model, to check if our experiments 
 generalize to the large dataset.
 ```
 # Data Settings
