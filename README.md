@@ -7,30 +7,14 @@ poorly documented/tracked experiments.
 This readme serves as a guide to explain how to use this framework, explain its inner workings and showcase its results
 on a real world eye disease dataset. The code is available <a href="https://github.com/MaxUhl98/ComputerVisionDemonstration">here</a>.
 
-<style>
-#customers {
-  font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-  color:#0000FF;
-}
+## Index
 
-#customers td, #customers th {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
+[Training Workflow](#Training-Workflow)<br>
+[Demonstration Workflow](#Demonstration-Workflow)<br>
+[Eye Disease Example](#Eye-Disease-Example)<br>
+[Models](#Models)<br>
+[User Guide](#User-Guide)<br>
 
-#customers tr:nth-child(even){background-color: #f2f2f2;}
-
-#customers tr:hover {background-color: #ddd;}
-
-#customers th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color:#708090;
-  color: white;
-}
 </style>
 <table id="customers">
   <tr>
