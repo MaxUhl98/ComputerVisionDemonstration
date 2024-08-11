@@ -3,7 +3,7 @@ from classification import demonstrate, train_model
 from utils import set_default_device
 
 
-def train_and_demonstrate() -> None:
+def train() -> None:
     """Trains models using the configuration and demonstrates the results after training
 
     :return: None (writes training information to the used model logfile, saves models in the model folder.
@@ -12,7 +12,6 @@ def train_and_demonstrate() -> None:
     set_default_device()
     cfg = DemonstrationConfig()
     train_model(cfg)
-    demonstrate(cfg)
 
 
 def run_demonstration() -> None:
