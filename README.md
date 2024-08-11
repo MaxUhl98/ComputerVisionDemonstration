@@ -206,7 +206,7 @@ Now I go into main.py and run the function main(), which trains the models and c
 
 <h3><center>Step 3: Analyzing the results</center></h3>
 
-<img alt="Error" src="readme_images/confusion_matrix.png?" style="max-width: 50%;display: block;
+<img alt="Error" src="demonstration_results/MiniVGG/confusion_matrix.png?" style="max-width: 50%;display: block;
   margin-left: auto;
   margin-right: auto;"/>
 
@@ -221,7 +221,7 @@ costs or some use-case specific requirements limiting my model size I will circu
 by transfer learning more powerful models.
 
 
-<img alt="Error" src="readme_images/Model_Predictions.png" style="display: block;
+<img alt="Error" src="demonstration_results/MiniVGG/Model_Predictions.png" style="display: block;
   margin-left: auto;
   margin-right: auto;" />
 
@@ -253,7 +253,7 @@ Average: 0.981
 
 We get the following confusion matrix for the test dataset, which is unknown to the model: 
 
-<img alt="Error" src="readme_images/confusion_matrix_convnext.png" style="max-width: 50%;display: block;
+<img alt="Error" src="demonstration_results/ConvNeXt_V2/confusion_matrix_convnext.png" style="max-width: 50%;display: block;
   margin-left: auto;
   margin-right: auto;"/>
 
@@ -262,14 +262,14 @@ some patterns present in the test data, which are not found in the train data. A
 slightly overestimated our models performance<br> 
 
 Let's check out the EfficientNet V2 confusion matrix:<br>
-<img alt="Error" src="readme_images/efficientnet_confusion_matrix.png" style="max-width: 50%;display: block;
+<img alt="Error" src="demonstration_results/EfficientNetV2/efficientnet_confusion_matrix.png" style="max-width: 50%;display: block;
   margin-left: auto;
   margin-right: auto;"/>
 
 
 Last but not least we train the Vision Transformer which yields the following result:<br>
  
-<img alt="Error" src="readme_images/vit_confusion_matrix.png"  
+<img alt="Error" src="demonstration_results/ViT/vit_confusion_matrix.png"  
      style="max-width: 50%;display: block;
   margin-left: auto;
   margin-right: auto;"/>
