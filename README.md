@@ -59,7 +59,8 @@ inside `main.py`.</p>
   margin-right: auto;
   width:100%;"/>
   <br>
-  <p>The demonstration uses the configured pretrained model to create showcase predictions and true labels for 16 images, giving the experimenter the chance to spot common mistakes during the early stages of experimentation. This is followed by plotting a confusion matrix, which provides an overview of the model's overall performance. You can isolate the demonstration process by calling:  
+  <p>The demonstration uses the configured pretrained model to create showcase predictions and true labels for 16 images, giving the experimenter the chance to spot common mistakes during the early stages of experimentation. This is followed by plotting a confusion matrix, which provides an overview of the model's overall performance. You can isolate the demonstration process by calling:
+        
 ```
 run_demonstration()
 ```
