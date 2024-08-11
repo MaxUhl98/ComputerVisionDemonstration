@@ -13,8 +13,6 @@ on a real world eye disease dataset. The code is available <a href="https://gith
 [Demonstration Workflow](#Demonstration-Workflow)<br>
 [Eye Disease Example](#Eye-Disease-Example)<br>
 [Models](#Models)<br>
-
-</style>
 <table id="customers">
   <tr>
     <th>Model</th>
