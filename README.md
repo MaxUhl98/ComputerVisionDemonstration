@@ -62,7 +62,8 @@ inside `main.py`.</p>
   <p>The demonstration uses the configured pretrained model to create showcase predictions and true labels for 16 images, giving the experimenter the chance to spot common mistakes during the early stages of experimentation. This is followed by plotting a confusion matrix, which provides an overview of the model's overall performance. You can isolate the demonstration process by calling:  
 ```
 run_demonstration()
-```inside main.py. The demonstration step only utilizes data from test_data_paths, which is unknown to the model, to properly check if the model is able to generalize. This is why it is <strong>paramount</strong> that the files inside test_data_paths and train_data_paths have no overlapping datapoints.</p>
+```
+inside main.py. The demonstration step only utilizes data from test_data_paths, which is unknown to the model, to properly check if the model is able to generalize. This is why it is <strong>paramount</strong> that the files inside test_data_paths and train_data_paths have no overlapping datapoints.</p>
 
 <h2 id="example">Eye Disease Example</h2>
 
