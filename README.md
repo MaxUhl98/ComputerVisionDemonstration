@@ -289,7 +289,7 @@ While not as powerful as the other model options in the repository it is compara
 
 <h3 id="convnext"><center>ConvNeXt V2</center></h3>
 
-<img alt="Error" src="readme_images/ConvNeXt_v2_diagram.webp" style="width: 50%;display: block;
+<img alt="Error" src="readme_images/ConvNeXt_v2_diagram.jpg" style="width: 50%;display: block;
   margin-left: auto;
   margin-right: auto;
   height: auto;"/>
